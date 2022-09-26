@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IThrow : MonoBehaviour
+namespace Case.Throw
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IThrow
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void ThrowSettings(Vector3 startingPos, Transform target, int attack);
     }
 }
+

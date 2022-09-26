@@ -11,7 +11,8 @@ namespace Case.Characters
         public int Healty;
         public int Attack;
         public float Speed;
-        public float Range;
+        public float ScanArea; //Because of detect enemy around 
+        public float AttackRange; //Because of attack enemy
 
 
     }

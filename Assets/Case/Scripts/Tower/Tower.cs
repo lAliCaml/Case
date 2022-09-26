@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Case.Healty;
+using Case.Throw;
 
 
 namespace Case.Towers
@@ -12,7 +13,6 @@ namespace Case.Towers
         [Header("CharacterFeatures")]
         private int _health;
         private int _attack;
-        private float _speed;
         private float _scanArea;
 
         private int _currentHealth;
@@ -20,6 +20,8 @@ namespace Case.Towers
 
         [HideInInspector]
         public float HealthRate;
+
+        [SerializeField] private GameObject Arrow;
 
         #endregion
 
@@ -53,7 +55,7 @@ namespace Case.Towers
 
         private void ScanningEnemy()
         {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, 10);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _scanArea);
 
             GameObject nearestEnemy = null;
             float scanArea = _scanArea;
@@ -84,7 +86,11 @@ namespace Case.Towers
 
         public virtual void Attack(Transform target)
         {
-            Debug.Log(target.name);
+            Vector3 startingPos = transform.position + Vector3.up * 3;
+
+            GameObject arrow = Instantiate(Arrow, transform.position, Quaternion.identity);
+            arrow.GetComponent<IThrow>().ThrowSettings(startingPos, target, _attack);
+
         }
 
 
@@ -98,23 +104,19 @@ namespace Case.Towers
 
         public void GetDamage(int damage)
         {
-            HealthRate = CurrentHealty(_currentHealth, damage);
-        }
+            _currentHealth -= damage;
 
-        public int CurrentHealty(int currentHealth, int damage)
-        {
-            int value = currentHealth - damage;
-            int rate = value / _health;
+            Debug.Log(gameObject.name + " ," + _currentHealth.ToString());
 
-            if (value > 0)
+
+            if (_currentHealth > 0)
             {
-                return rate;
+                HealthRate = _currentHealth / _health;
             }
             else
             {
                 Death();
             }
-            return value;
         }
 
         public void Death()

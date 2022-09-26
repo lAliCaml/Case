@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Case.Healty;
 
-public class Melee : MonoBehaviour
+namespace Case.Characters
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Melee : Character
     {
-        
+
+        public override void Attack()
+        {
+            if (_attackTarget != null)
+            {
+                _attackTarget.GetComponent<IHealty>().GetDamage(_attack);
+            }
+            base.Attack();
+            
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
