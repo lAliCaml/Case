@@ -15,5 +15,5 @@ MonoBehaviour:
   Healty: 276
   Attack: 10
   Speed: 3.16
-  ScanArea: 15
-  AttackRange: 10
+  ScanArea: 20
+  AttackRange: 15

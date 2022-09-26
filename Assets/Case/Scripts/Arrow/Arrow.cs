@@ -11,11 +11,12 @@ public class Arrow : MonoBehaviour, IThrow
 
 
 
-    public void ThrowSettings(Vector3 startingPos, Transform target, int attack)
+    public void ThrowSettings(Vector3 startingPos, Transform target, int attack, string tag)
     {
         transform.position = startingPos;
         _target = target;
         _attack = attack;
+        gameObject.tag = tag;
     }
 
     // Update is called once per frame
@@ -30,7 +31,12 @@ public class Arrow : MonoBehaviour, IThrow
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy"))
+        if(gameObject.CompareTag("Friend") && other.CompareTag("Enemy"))
+        {
+            other.GetComponent<IHealty>().GetDamage(_attack);
+            Destroy(gameObject);
+        }
+        else if(gameObject.CompareTag("Enemy") && other.CompareTag("Friend"))
         {
             other.GetComponent<IHealty>().GetDamage(_attack);
             Destroy(gameObject);

@@ -22,7 +22,6 @@ public class AttackStateTime : StateMachineBehaviour
         if (stateInfo.normalizedTime >= attackTimeRate && canAttack)
         {
             character.Attack();
-            Debug.Log("Saldirildi");
             canAttack = false;
         }
     }

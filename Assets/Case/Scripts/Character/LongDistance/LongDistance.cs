@@ -15,8 +15,13 @@ namespace Case.Characters
 
                 Vector3 startingPos = transform.position + Vector3.up * 3;
 
-                GameObject arrow = Instantiate(_arrow, transform.position, Quaternion.identity);
-                arrow.GetComponent<IThrow>().ThrowSettings(startingPos, _attackTarget, _attack);
+                GameObject arrow = Instantiate(_arrow, startingPos, Quaternion.identity);
+
+                string name = gameObject.tag;
+
+                arrow.GetComponent<IThrow>().ThrowSettings(startingPos, _attackTarget, _attack, name);
+
+                Debug.Log("Ok olusturuldu");
             }
 
             base.Attack();

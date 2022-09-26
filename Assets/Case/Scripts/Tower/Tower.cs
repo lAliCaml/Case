@@ -89,7 +89,10 @@ namespace Case.Towers
             Vector3 startingPos = transform.position + Vector3.up * 3;
 
             GameObject arrow = Instantiate(Arrow, transform.position, Quaternion.identity);
-            arrow.GetComponent<IThrow>().ThrowSettings(startingPos, target, _attack);
+
+            string name = gameObject.tag;
+
+            arrow.GetComponent<IThrow>().ThrowSettings(startingPos, target, _attack, name);
 
         }
 
