@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Case.Healty;
+using Case.Health;
 
 namespace Case.Characters
 {
@@ -19,11 +20,9 @@ namespace Case.Characters
         [Header("Components")]
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private AnimControl _animControl;
+        [SerializeField] private HealtyBar _healtBar;
 
         
-
-        [HideInInspector]
-        public float HealthRate;
         private int _currentHealth;
 
         private bool _isAttack;            //When character reach to the enemey
@@ -46,12 +45,18 @@ namespace Case.Characters
 
             _currentHealth = _health;
 
-            _agent.speed = _characterProperties.Speed;
+            _agent.speed = _speed;
             _isAttack = false;
             _haveTarget = false;
 
             StartCoroutine(RunSettings());
             StartCoroutine(FindEnemy());
+        }
+
+        public void Initialize(string tag)
+        {
+            gameObject.tag = tag;
+
         }
         #endregion
 
@@ -81,6 +86,11 @@ namespace Case.Characters
                 }
                 yield return new WaitForSeconds(.25f);
             }
+        }
+
+        private void RunToTheTarget(Transform target)
+        {
+            _agent.SetDestination(target.position);
         }
 
         #endregion
@@ -149,10 +159,7 @@ namespace Case.Characters
 
         }
 
-        private void RunToTheTarget(Transform target)
-        {
-            _agent.SetDestination(target.position);
-        }
+        
 
         #endregion
 
@@ -167,6 +174,16 @@ namespace Case.Characters
             _animControl.AttackMode();
             _attackTarget = target;
         }
+
+        public void Rotate()
+        {
+            if(_attackTarget!= null)
+            {
+                Quaternion targetRotate = Quaternion.LookRotation(_attackTarget.position - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotate, Time.deltaTime * 200);
+            }
+        }
+
 
         /*
          * Attack moments 
@@ -192,7 +209,8 @@ namespace Case.Characters
 
             if (_currentHealth > 0)
             {
-                HealthRate = _currentHealth / _health;
+                float healthRate = (float)_currentHealth / (float)_health;
+                _healtBar.HealthBarShow(healthRate);
             }
             else
             {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Case.Healty;
 using Case.Throw;
+using Case.Health;
+using DG.Tweening;
 
 
 namespace Case.Towers
@@ -15,11 +17,17 @@ namespace Case.Towers
         private int _attack;
         private float _scanArea;
 
-        
+        [Header("Components")]
+        [SerializeField] private HealtyBar _healtBar;
+
+        [Header("HitEffect")]
+        [SerializeField] private ParticleSystem _hitEffect;
+        [SerializeField] private ParticleSystem _deathEffect;
+
+
+
         [SerializeField] private TowerProperties _towerProperties; //ScriptableObject
 
-        [HideInInspector]
-        public float HealthRate;
         private int _currentHealth;
 
         [SerializeField] private GameObject Arrow;
@@ -109,21 +117,27 @@ namespace Case.Towers
         public void GetDamage(int damage)
         {
             _currentHealth -= damage;
-
+            Instantiate(_hitEffect, transform.position, Quaternion.identity);
 
             if (_currentHealth > 0)
             {
-                HealthRate = _currentHealth / _health;
+                float healthRate = (float)_currentHealth / (float)_health;
+                _healtBar.HealthBarShow(healthRate);
+
+                transform.DOPunchScale(Vector3.one * .1f, .1f);
             }
             else
             {
                 Death();
             }
+
+            Camera.main.DOShakePosition(0.1f, Vector3.one * .075f, 0, 0f, false);
         }
 
         public void Death()
         {
-            Debug.Log("Die");
+            Instantiate(_deathEffect, transform.position, Quaternion.identity);
+
             Destroy(gameObject);
         }
         #endregion

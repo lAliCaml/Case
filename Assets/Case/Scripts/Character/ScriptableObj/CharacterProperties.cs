@@ -14,6 +14,9 @@ namespace Case.Characters
         public float ScanArea; //Because of detect enemy around 
         public float AttackRange; //Because of attack enemy
 
+        [Header("Create Character")]
+        public GameObject Character;
+
 
     }
 }

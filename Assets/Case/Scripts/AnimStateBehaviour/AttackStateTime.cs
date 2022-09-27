@@ -24,6 +24,8 @@ public class AttackStateTime : StateMachineBehaviour
             character.Attack();
             canAttack = false;
         }
+
+        character.Rotate();
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

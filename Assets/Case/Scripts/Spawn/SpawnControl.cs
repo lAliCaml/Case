@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Case.Managers;
 
 namespace Case.Spawn
 {
@@ -13,14 +14,20 @@ namespace Case.Spawn
 
         void Start()
         {
+            GameManager.Instance.OnStartGame += HandleStartGame;
+        }
+
+        private void HandleStartGame()
+        {
             StartCoroutine(Spawn());
         }
+
 
         IEnumerator Spawn()
         {
             GameObject obj;
             Vector3 pos;
-            while(true)
+            while(GameManager.Instance.isContinue)
             {
                 obj = _enemies[Random.Range(0, _enemies.Length)];
                 pos = _points[Random.Range(0, _points.Length)].position;

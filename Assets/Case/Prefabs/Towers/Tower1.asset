@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff6f74291a653e498cee6b4ef2b35b0, type: 3}
   m_Name: Tower1
   m_EditorClassIdentifier: 
-  Healty: 400
-  Attack: 6
-  ScanArea: 20
+  Healty: 200
+  Attack: 5
+  ScanArea: 25
