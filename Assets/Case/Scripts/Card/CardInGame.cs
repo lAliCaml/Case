@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Case.Characters;
+using Case.Energy;
 using UnityEngine.UI;
 
 namespace Case.Card
@@ -53,7 +54,7 @@ namespace Case.Card
         {
             transform.position = _startingPos;
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && EnergyManager.Instance.energy >= _characterProperties.Energy)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit))
@@ -62,6 +63,8 @@ namespace Case.Card
                     {
                         GameObject obj = Instantiate(_characterProperties.Character, hit.point, Quaternion.identity);
                         obj.GetComponent<Character>().Initialize("Friend");
+
+                        EnergyManager.Instance.SpendEnergy(_characterProperties.Energy);
                     }
                 }
             }

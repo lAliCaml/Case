@@ -5,6 +5,7 @@ using Case.Healty;
 using Case.Throw;
 using Case.Health;
 using DG.Tweening;
+using Case.Managers;
 
 
 namespace Case.Towers
@@ -29,6 +30,8 @@ namespace Case.Towers
         [SerializeField] private TowerProperties _towerProperties; //ScriptableObject
 
         private int _currentHealth;
+
+        [SerializeField] private bool _isMainTower;
 
         [SerializeField] private GameObject Arrow;
 
@@ -137,6 +140,11 @@ namespace Case.Towers
         public void Death()
         {
             Instantiate(_deathEffect, transform.position, Quaternion.identity);
+
+            if(_isMainTower)
+            {
+                GameManager.Instance.FinishGame();
+            }
 
             Destroy(gameObject);
         }

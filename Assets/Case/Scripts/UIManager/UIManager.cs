@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Case.Managers
 {
@@ -42,6 +43,11 @@ namespace Case.Managers
         {
             GameManager.Instance.StartGame();
 
+        }
+
+        public void PlayAgain()
+        {
+            SceneManager.LoadScene(0);
         }
 
         #endregion

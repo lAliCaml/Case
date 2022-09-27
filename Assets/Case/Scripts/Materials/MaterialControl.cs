@@ -14,7 +14,7 @@ public class MaterialControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _offset += (Vector2.right * Random.Range(0f, .1f) + Vector2.up * Random.Range(0f, .1f)) * Time.deltaTime * 1;
+        _offset += (Vector2.right * 2 + Vector2.up) * Time.deltaTime * .05f;
         mat.SetTextureOffset("_MainTex", _offset);
     }
 }
