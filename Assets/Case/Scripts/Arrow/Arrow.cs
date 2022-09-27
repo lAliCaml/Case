@@ -27,6 +27,10 @@ public class Arrow : MonoBehaviour, IThrow
             transform.LookAt(_target.position + Vector3.up);
             transform.Translate(Vector3.forward * Time.deltaTime * 40);
         }
+        else 
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

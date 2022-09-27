@@ -20,8 +20,6 @@ namespace Case.Characters
                 string name = gameObject.tag;
 
                 arrow.GetComponent<IThrow>().ThrowSettings(startingPos, _attackTarget, _attack, name);
-
-                Debug.Log("Ok olusturuldu");
             }
 
             base.Attack();

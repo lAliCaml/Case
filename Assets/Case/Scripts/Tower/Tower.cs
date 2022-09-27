@@ -15,11 +15,12 @@ namespace Case.Towers
         private int _attack;
         private float _scanArea;
 
-        private int _currentHealth;
-        [SerializeField] private TowerProperties _towerProperties;
+        
+        [SerializeField] private TowerProperties _towerProperties; //ScriptableObject
 
         [HideInInspector]
         public float HealthRate;
+        private int _currentHealth;
 
         [SerializeField] private GameObject Arrow;
 
@@ -108,8 +109,6 @@ namespace Case.Towers
         public void GetDamage(int damage)
         {
             _currentHealth -= damage;
-
-            Debug.Log(gameObject.name + " ," + _currentHealth.ToString());
 
 
             if (_currentHealth > 0)

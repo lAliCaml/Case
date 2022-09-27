@@ -18767,6 +18767,7 @@ MonoBehaviour:
   _animControl: {fileID: 7300762607655578607}
   HealthRate: 0
   _characterProperties: {fileID: 11400000, guid: 329d8b30cd37df044a2beac0e589290b, type: 2}
+  _arrow: {fileID: 9071575690284845348, guid: 965bc9e8fdaa5cc4881acb405b86f174, type: 3}
 --- !u!136 &49220377
 CapsuleCollider:
   m_ObjectHideFlags: 0

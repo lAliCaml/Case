@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b614097e585a54b889acdb77b43a3b, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  Healty: 276
+  Healty: 20
   Attack: 10
-  Speed: 3.16
-  ScanArea: 20
-  AttackRange: 15
+  Speed: 2.2
+  ScanArea: 15
+  AttackRange: 12

@@ -20,18 +20,19 @@ namespace Case.Characters
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private AnimControl _animControl;
 
-        private int _currentHealth;
+        
 
         [HideInInspector]
         public float HealthRate;
+        private int _currentHealth;
 
-        private bool _isAttack;
-        private bool _haveTarget;
+        private bool _isAttack;            //When character reach to the enemey
+        private bool _haveTarget;         //Because run towards enemy
         protected Transform _attackTarget; 
 
 
 
-        [SerializeField] private CharacterProperties _characterProperties;
+        [SerializeField] private CharacterProperties _characterProperties;  //ScriptableObject
         #endregion
 
         #region  Define Properties
@@ -58,6 +59,9 @@ namespace Case.Characters
 
         #region Run
 
+        /*
+         * If there are no enemy around the current character 
+         */
         IEnumerator RunSettings()
         {
             while(true)
@@ -73,7 +77,6 @@ namespace Case.Characters
                         _agent.SetDestination(transform.position - Vector3.forward * 10);
                         
                     }
-
                     _animControl.RunMode();
                 }
                 yield return new WaitForSeconds(.25f);
@@ -101,11 +104,14 @@ namespace Case.Characters
 
         private void ScanningEnemy()
         {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _scanArea);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _scanArea); //Create sphere collider for the hit with enemies collider
 
             GameObject nearestEnemy = null;
             float scanArea = _scanArea;
 
+            /*
+             * Calculate hit colliders distance and find which one is closest
+             */
             foreach (var hitObj in hitColliders)
             {
                 if (gameObject.CompareTag("Friend") && hitObj.gameObject.CompareTag("Enemy"))
@@ -127,6 +133,10 @@ namespace Case.Characters
             }
 
 
+            /*
+             * If enemy is not too far away character will be attack
+             * else character will run towards enemey
+             */
             if (nearestEnemy != null && Vector3.Distance(nearestEnemy.transform.position, transform.position) <= _attackRange)
             {
                 BeginToAttack(nearestEnemy.transform);
@@ -158,6 +168,10 @@ namespace Case.Characters
             _attackTarget = target;
         }
 
+        /*
+         * Attack moments 
+         * this funtions interact with AttackStateTime 
+         */
         public virtual void Attack()
         {
 
@@ -188,7 +202,6 @@ namespace Case.Characters
 
         public void Death()
         {
-            Debug.Log("Die");
             Destroy(gameObject);
         }
 

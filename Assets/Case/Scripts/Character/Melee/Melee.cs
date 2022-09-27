@@ -15,7 +15,6 @@ namespace Case.Characters
                 _attackTarget.GetComponent<IHealty>().GetDamage(_attack);
             }
             base.Attack();
-            
         }
 
     }

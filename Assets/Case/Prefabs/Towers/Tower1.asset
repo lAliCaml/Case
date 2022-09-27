@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tower1
   m_EditorClassIdentifier: 
   Healty: 400
-  Attack: 12
+  Attack: 6
   ScanArea: 20
