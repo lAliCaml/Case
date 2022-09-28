@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: 
   Healty: 20
-  Attack: 1500
+  Attack: 15
   Speed: 3.5
   ScanArea: 20
   AttackRange: 15

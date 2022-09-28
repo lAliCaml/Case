@@ -69,6 +69,7 @@ namespace Case.Card
             {
                 _cardImage.color = colors[1];
                 transform.position = eventData.position;
+                Destroy(_ghostCharacter);
             }
         }
 
@@ -83,8 +84,10 @@ namespace Case.Card
 
                 EnergyManager.Instance.SpendEnergy(_characterProperties.Energy);
 
-                Destroy(_ghostCharacter);
+               
             }
+
+            Destroy(_ghostCharacter);
             _cardImage.color = new Color32(255, 255, 255, 255);
         }
 
