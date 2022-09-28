@@ -19,6 +19,7 @@ namespace Case.Card
 
         private Color32[] colors;
 
+        private GameObject _ghostCharacter;
 
         RaycastHit hit;
         private void Start()
@@ -42,12 +43,27 @@ namespace Case.Card
 
         void IDragHandler.OnDrag(PointerEventData eventData)
         {
-            
 
-            if((eventData.position.y - _startingPos.y) >= 500)
+
+            if ((eventData.position.y - _startingPos.y) >= 500)
             {
                 _cardImage.color = colors[0];
                 transform.position = Vector3.up * -1500;
+
+                //Ghost character
+                if (_ghostCharacter != null)
+                {
+                    _ghostCharacter.transform.position = GetTouchPosition();
+                }
+                else if(_ghostCharacter == null)
+                {
+                    GameObject obj =  Instantiate(_characterProperties.Character.transform.GetChild(0).transform.gameObject, GetTouchPosition(), Quaternion.identity);
+
+                    Material mat = obj.GetComponentInChildren<SkinnedMeshRenderer>().material;
+                    mat.color = new Color32(255,255,255, 25);
+
+                    _ghostCharacter = obj;
+                }
             }
             else
             {
@@ -62,19 +78,30 @@ namespace Case.Card
 
             if (Input.GetMouseButtonUp(0) && EnergyManager.Instance.energy >= _characterProperties.Energy)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
-                {
-                    if (hit.transform.tag == "Ground")
-                    {
-                        GameObject obj = Instantiate(_characterProperties.Character, hit.point, Quaternion.identity);
-                        obj.GetComponent<Character>().Initialize("Friend");
+                GameObject obj = Instantiate(_characterProperties.Character, GetTouchPosition(), Quaternion.identity);
+                obj.GetComponent<Character>().Initialize("Friend");
 
-                        EnergyManager.Instance.SpendEnergy(_characterProperties.Energy);
-                    }
-                }
+                EnergyManager.Instance.SpendEnergy(_characterProperties.Energy);
+
+                Destroy(_ghostCharacter);
             }
             _cardImage.color = new Color32(255, 255, 255, 255);
+        }
+
+        private Vector3 GetTouchPosition()
+        {
+
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.tag == "Ground")
+                {
+                    return hit.point;
+                }
+            }
+
+            return Vector3.up * -500;
+
         }
     }
 }
