@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f38b9a56b23e4df499eaede1c2276296
+guid: 7ae56a8428b94f24b854dac395c7c925
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
@@ -7,20 +7,98 @@ ModelImporter:
       1: 100000
     second: //RootNode
   - first:
+      1: 100002
+    second: Bone_Base
+  - first:
+      1: 100004
+    second: Bone_door_A
+  - first:
+      1: 100006
+    second: Bone_door_B
+  - first:
+      1: 100008
+    second: Wall_A_door_A
+  - first:
+      1: 100010
+    second: Wall_A_door_B
+  - first:
+      1: 100012
+    second: Wall_A_gate
+  - first:
       4: 400000
     second: //RootNode
+  - first:
+      4: 400002
+    second: Bone_Base
+  - first:
+      4: 400004
+    second: Bone_door_A
+  - first:
+      4: 400006
+    second: Bone_door_B
+  - first:
+      4: 400008
+    second: Wall_A_door_A
+  - first:
+      4: 400010
+    second: Wall_A_door_B
+  - first:
+      4: 400012
+    second: Wall_A_gate
   - first:
       23: 2300000
     second: //RootNode
   - first:
+      23: 2300002
+    second: Wall_A_door_A
+  - first:
+      23: 2300004
+    second: Wall_A_door_B
+  - first:
+      23: 2300006
+    second: Wall_A_gate
+  - first:
       33: 3300000
     second: //RootNode
   - first:
+      33: 3300002
+    second: Wall_A_door_A
+  - first:
+      33: 3300004
+    second: Wall_A_door_B
+  - first:
+      33: 3300006
+    second: Wall_A_gate
+  - first:
       43: 4300000
-    second: Tower_C001
+    second: Box003
   - first:
       43: 4300002
-    second: Tower_B
+    second: Gate_B
+  - first:
+      43: 4300004
+    second: Wall_B_gate
+  - first:
+      43: 4300006
+    second: Wall_A_gate
+  - first:
+      43: 4300008
+    second: Wall_A_door_A
+  - first:
+      43: 4300010
+    second: Wall_A_door_B
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Wall_A_door_A
+  - first:
+      137: 13700002
+    second: Wall_A_gate
+  - first:
+      137: 13700004
+    second: Wall_A_door_B
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -46,7 +124,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -110,7 +188,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

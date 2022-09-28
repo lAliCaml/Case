@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f38b9a56b23e4df499eaede1c2276296
+guid: 06905b5e993435c4e9526f63c49622e3
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
@@ -17,10 +17,10 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: Tower_C001
+    second: Market
   - first:
       43: 4300002
-    second: Tower_B
+    second: LumberMill
   externalObjects:
   - first:
       type: UnityEngine:Material

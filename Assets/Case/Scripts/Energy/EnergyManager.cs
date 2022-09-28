@@ -13,6 +13,7 @@ namespace Case.Energy
         [SerializeField] private Text _energyText;
 
         public float energy;
+        private bool _isFilling;
 
         void Start()
         {
@@ -20,22 +21,35 @@ namespace Case.Energy
 
             _energyText.text = ((int)energy).ToString();
             _energyImage.fillAmount = energy / 10;
+            _isFilling = false;
         }
 
-        private void Update()
-        {
-            if (energy <= 10)
-            {
-                energy += 1 * Time.deltaTime;
-
-                _energyText.text = ((int)energy).ToString();
-                _energyImage.fillAmount =  energy / 10;
-            }
-        }
 
         public void SpendEnergy(float amount)
         {
             energy -= amount;
+
+            if (!_isFilling)
+            {
+                StartCoroutine(FillEnergy());
+            }
+        }
+
+        private IEnumerator FillEnergy()
+        {
+            _isFilling = true;
+            while (energy <= 10)
+            {
+                energy += 1 * Time.deltaTime;
+
+                _energyText.text = ((int)energy).ToString();
+                _energyImage.fillAmount = energy / 10;
+
+
+                yield return null;
+            }
+
+            _isFilling = false;
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f38b9a56b23e4df499eaede1c2276296
+guid: 9bf280570cf5dce45a29b84470a52c7e
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
@@ -17,10 +17,13 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: Tower_C001
+    second: Object016
   - first:
       43: 4300002
-    second: Tower_B
+    second: Temple
+  - first:
+      43: 4300004
+    second: Object026
   externalObjects:
   - first:
       type: UnityEngine:Material
