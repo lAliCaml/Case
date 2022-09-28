@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Case.Throw;
-using Case.Healty;
+using Case.Health;
 
 public class Arrow : MonoBehaviour, IThrow
 {

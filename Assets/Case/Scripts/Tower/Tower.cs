@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Case.Healty;
 using Case.Throw;
 using Case.Health;
-using DG.Tweening;
 using Case.Managers;
+using DG.Tweening;
 
 
 namespace Case.Towers
@@ -30,6 +29,7 @@ namespace Case.Towers
         [SerializeField] private TowerProperties _towerProperties; //ScriptableObject
 
         private int _currentHealth;
+        private bool _isPunchScale;
 
         [SerializeField] private bool _isMainTower;
 
@@ -74,9 +74,17 @@ namespace Case.Towers
 
             foreach (var hitObj in hitColliders)
             {
-                if (hitObj.gameObject.CompareTag("Enemy"))
+                if (gameObject.CompareTag("Friend") && hitObj.gameObject.CompareTag("Enemy"))
                 {
-                    if(Vector3.Distance(transform.position , hitObj.transform.position) <= scanArea)
+                    if (Vector3.Distance(transform.position, hitObj.transform.position) <= scanArea)
+                    {
+                        nearestEnemy = hitObj.gameObject;
+                        scanArea = Vector3.Distance(transform.position, hitObj.transform.position);
+                    }
+                }
+                else if (gameObject.CompareTag("Enemy") && hitObj.gameObject.CompareTag("Friend"))
+                {
+                    if (Vector3.Distance(transform.position, hitObj.transform.position) <= scanArea)
                     {
                         nearestEnemy = hitObj.gameObject;
                         scanArea = Vector3.Distance(transform.position, hitObj.transform.position);
@@ -88,7 +96,7 @@ namespace Case.Towers
             {
                 Attack(nearestEnemy.transform);
             }
-            
+
         }
 
 
@@ -127,7 +135,7 @@ namespace Case.Towers
                 float healthRate = (float)_currentHealth / (float)_health;
                 _healtBar.HealthBarShow(healthRate);
 
-                transform.DOPunchScale(Vector3.one * .1f, .1f);
+                StartCoroutine(PunchScale());
             }
             else
             {
@@ -141,12 +149,25 @@ namespace Case.Towers
         {
             Instantiate(_deathEffect, transform.position, Quaternion.identity);
 
-            if(_isMainTower)
+            if (_isMainTower)
             {
                 GameManager.Instance.FinishGame();
             }
 
             Destroy(gameObject);
+        }
+
+        IEnumerator PunchScale()
+        {
+            if (!_isPunchScale)
+            {
+                _isPunchScale = true;
+                transform.DOPunchScale(Vector3.one * .2f, .1f);
+
+                yield return new WaitForSeconds(.1f);
+                _isPunchScale = false;
+            }
+
         }
         #endregion
     }

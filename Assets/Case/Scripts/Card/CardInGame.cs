@@ -15,6 +15,8 @@ namespace Case.Card
         [SerializeField] private CharacterProperties _characterProperties;
         [SerializeField] private Image _cardImage;
 
+        [SerializeField] private Text text_Energy;
+
         private Color32[] colors;
 
 
@@ -29,6 +31,8 @@ namespace Case.Card
                 new Color32(0, 0, 0, 0),
                 new Color32(255, 255, 255, 255)
             };
+
+            text_Energy.text = _characterProperties.Energy.ToString();
         }
 
         void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
@@ -38,15 +42,17 @@ namespace Case.Card
 
         void IDragHandler.OnDrag(PointerEventData eventData)
         {
-            transform.position = eventData.position;
+            
 
             if((eventData.position.y - _startingPos.y) >= 500)
             {
                 _cardImage.color = colors[0];
+                transform.position = Vector3.up * -1500;
             }
             else
             {
                 _cardImage.color = colors[1];
+                transform.position = eventData.position;
             }
         }
 

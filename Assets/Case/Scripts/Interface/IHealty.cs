@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Case.Healty
+namespace Case.Health
 {
     public interface IHealty
     {

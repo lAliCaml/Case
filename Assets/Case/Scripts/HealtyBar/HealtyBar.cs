@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Case.Characters;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace Case.Health
 {
@@ -18,7 +19,7 @@ namespace Case.Health
 
         private void Start()
         {
-            _canvas.transform.LookAt(Camera.main.transform.position);
+            
 
 
             if (gameObject.CompareTag("Friend"))
@@ -29,6 +30,11 @@ namespace Case.Health
             {
                 _healthImage.color = Color.magenta;
             }
+        }
+
+        public void Update()
+        {
+            _canvas.LookAt(Camera.main.transform.position + Vector3.up * 1000);
         }
 
         public void HealthBarShow(float rate)

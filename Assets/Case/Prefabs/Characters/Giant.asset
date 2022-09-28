@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b614097e585a54b889acdb77b43a3b, type: 3}
   m_Name: Giant
   m_EditorClassIdentifier: 
-  Healty: 40
-  Attack: 12
+  Healty: 60
+  Attack: 20
   Speed: 3
   ScanArea: 8
   AttackRange: 5

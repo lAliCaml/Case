@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Case.Healty;
 using Case.Health;
+using Case.Managers;
+using DG.Tweening;
 
 namespace Case.Characters
 {
@@ -51,6 +52,10 @@ namespace Case.Characters
 
             StartCoroutine(RunSettings());
             StartCoroutine(FindEnemy());
+
+            //Scale
+            transform.localScale = Vector3.zero;
+            transform.DOScale(Vector3.one, .15f);
         }
 
         public void Initialize(string tag)
@@ -69,7 +74,7 @@ namespace Case.Characters
          */
         IEnumerator RunSettings()
         {
-            while(true)
+            while(GameManager.Instance.isContinue)
             {
                 if (!_isAttack && !_haveTarget)
                 {
@@ -86,6 +91,9 @@ namespace Case.Characters
                 }
                 yield return new WaitForSeconds(.25f);
             }
+
+            _agent.ResetPath();
+            _animControl.IdleMode();
         }
 
         private void RunToTheTarget(Transform target)
