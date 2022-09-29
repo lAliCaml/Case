@@ -77,7 +77,7 @@ namespace Case.Card
         {
             transform.position = _startingPos;
 
-            if (Input.GetMouseButtonUp(0) && EnergyManager.Instance.energy >= _characterProperties.Energy)
+            if (Input.GetMouseButtonUp(0) && IsGround() && EnergyManager.Instance.energy >= _characterProperties.Energy)
             {
                 GameObject obj = Instantiate(_characterProperties.Character, GetTouchPosition(), Quaternion.identity);
                 obj.GetComponent<Character>().Initialize("Friend");
@@ -102,9 +102,21 @@ namespace Case.Card
                     return hit.point;
                 }
             }
-
             return Vector3.up * -500;
+        }
 
+        private bool IsGround()
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.tag == "Ground")
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

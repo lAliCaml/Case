@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 namespace Case.UIControl
@@ -15,6 +16,8 @@ namespace Case.UIControl
         private Vector3 pos_BottomPlayer;
 
         [SerializeField] private GameObject button_PlayAgain;
+
+        [SerializeField] private Image panel_PlayersScreen;
 
 
 
@@ -31,11 +34,23 @@ namespace Case.UIControl
             button_PlayAgain.SetActive(false);
 
             StartCoroutine(StartAnim());
-         
+            StartCoroutine(StartPanel());
+        }
+
+        IEnumerator StartPanel()
+        {
+            while (panel_PlayersScreen.fillAmount <= 1.01f)
+            {
+                panel_PlayersScreen.fillAmount += 1 * Time.deltaTime;
+
+                yield return null;
+            }
+              
         }
 
         IEnumerator StartAnim()
         {
+            
             yield return new WaitForSeconds(.25f);
             panel_TopPlayer.transform.DOMove(PercentPos(panel_TopPlayer.transform.position, pos_TopPlayer) , .5f);
             panel_BottomPlayer.transform.DOMove(PercentPos(panel_BottomPlayer.transform.position, pos_BottomPlayer), .5f);
