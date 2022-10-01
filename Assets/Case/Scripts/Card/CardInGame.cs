@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Case.Characters;
 using Case.Energy;
+using Case.BorderControl;
 using UnityEngine.UI;
 
 namespace Case.Card
@@ -45,7 +46,7 @@ namespace Case.Card
         {
 
 
-            if ((eventData.position.y - _startingPos.y) >= 500)
+            if ((eventData.position.y - _startingPos.y) >= Screen.height * .25f)
             {
                 _cardImage.color = colors[0];
                 transform.position = Vector3.up * -1500;
@@ -71,11 +72,22 @@ namespace Case.Card
                 transform.position = eventData.position;
                 Destroy(_ghostCharacter);
             }
+
+
+            if ((eventData.position.y - _startingPos.y) >= Screen.height * .38f)
+            {
+                BorderManager.Instance.BorderCondition(true);
+            }
+            else
+            {
+                BorderManager.Instance.BorderCondition(false);
+            }
         }
 
         void IEndDragHandler.OnEndDrag(PointerEventData eventData)
         {
             transform.position = _startingPos;
+
 
             if (Input.GetMouseButtonUp(0) && IsGround() && EnergyManager.Instance.energy >= _characterProperties.Energy)
             {
@@ -89,6 +101,7 @@ namespace Case.Card
 
             Destroy(_ghostCharacter);
             _cardImage.color = new Color32(255, 255, 255, 255);
+            BorderManager.Instance.BorderCondition(false);
         }
 
         private Vector3 GetTouchPosition()

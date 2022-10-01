@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b614097e585a54b889acdb77b43a3b, type: 3}
+  m_Name: SwordMan
+  m_EditorClassIdentifier: 
+  Healty: 125
+  Attack: 40
+  Speed: 4
+  ScanArea: 12
+  AttackRange: 4
+  Character: {fileID: 8806265539541873006, guid: 82435e10a8a24df4e9ff80a65cb8a3af, type: 3}
+  Energy: 3

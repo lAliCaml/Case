@@ -4,6 +4,7 @@ using UnityEngine;
 using Case.Throw;
 using Case.Health;
 using Case.Managers;
+using Case.BorderControl;
 using DG.Tweening;
 
 
@@ -32,8 +33,13 @@ namespace Case.Towers
         private bool _isPunchScale;
 
         [SerializeField] private bool _isMainTower;
+        [SerializeField] private bool _isRightTower;
+        [SerializeField] private bool _isLeftTower;
+
 
         [SerializeField] private GameObject Arrow;
+
+        
 
         #endregion
 
@@ -153,6 +159,16 @@ namespace Case.Towers
             {
                 GameManager.Instance.FinishGame();
             }
+            else if (_isLeftTower)
+            {
+                BorderManager.Instance.ChangeBorder("Left");
+            }
+            else if (_isRightTower)
+            {
+                BorderManager.Instance.ChangeBorder("Right");
+            }
+
+
 
             Destroy(gameObject);
         }

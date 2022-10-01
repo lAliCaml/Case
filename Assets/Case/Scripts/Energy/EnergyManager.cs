@@ -9,21 +9,24 @@ namespace Case.Energy
     {
         public static EnergyManager Instance;
 
-        [SerializeField] private Image _energyImage;
+        [SerializeField] private Slider _energySlider;
         [SerializeField] private Text _energyText;
 
         public float energy;
         private bool _isFilling;
+
+      
 
         void Start()
         {
             Instance = this;
 
             _energyText.text = ((int)energy).ToString();
-            _energyImage.fillAmount = energy / 10;
+            _energySlider.value = energy / 10;
             _isFilling = false;
         }
 
+        
 
         public void SpendEnergy(float amount)
         {
@@ -43,7 +46,7 @@ namespace Case.Energy
                 energy += 1 * Time.deltaTime;
 
                 _energyText.text = ((int)energy).ToString();
-                _energyImage.fillAmount = energy / 10;
+                _energySlider.value = energy / 10;
 
 
                 yield return null;
@@ -52,6 +55,10 @@ namespace Case.Energy
             _isFilling = false;
         }
     }
+
+  
+
+    
 
 
 }
