@@ -17,32 +17,48 @@ public class Arrow : MonoBehaviour, IThrow
         _target = target;
         _attack = attack;
         gameObject.tag = tag;
+        StartCoroutine(FollowTarget());
+
+        if (_target == null)
+        {
+            Debug.Log("Hedef boþ");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator FollowTarget()
     {
-        if(_target != null)
+
+        while(true)
         {
-            transform.LookAt(_target.position + Vector3.up);
-            transform.Translate(Vector3.forward * Time.deltaTime * 40);
-        }
-        else 
-        {
-            Destroy(gameObject);
+
+            if (_target != null)
+            {
+                transform.LookAt(_target.position + Vector3.up);
+                transform.Translate(Vector3.forward * Time.deltaTime * 30);
+                Debug.Log("Gidiyor");
+            }
+            else
+            {
+                Debug.Log("Yok edildi");
+                //   Destroy(gameObject);
+            }
+            yield return null;
         }
     }
+   
 
     private void OnTriggerEnter(Collider other)
     {
         if(gameObject.CompareTag("Friend") && other.CompareTag("Enemy"))
         {
             other.GetComponent<IHealty>().GetDamage(_attack);
+
             Destroy(gameObject);
         }
         else if(gameObject.CompareTag("Enemy") && other.CompareTag("Friend"))
         {
             other.GetComponent<IHealty>().GetDamage(_attack);
+
             Destroy(gameObject);
         }
     }

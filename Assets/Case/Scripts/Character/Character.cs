@@ -19,7 +19,7 @@ namespace Case.Characters
         private float _attackRange;
 
         [Header("Components")]
-        [SerializeField] private NavMeshAgent _agent;
+        [SerializeField] protected NavMeshAgent _agent;
         [SerializeField] private AnimControl _animControl;
         [SerializeField] private HealtyBar _healtBar;
 
@@ -36,7 +36,7 @@ namespace Case.Characters
         #endregion
 
         #region  Define Properties
-        void Start()
+        public virtual void Start()
         {
             _health = _characterProperties.Healty;
             _attack = _characterProperties.Attack;
@@ -187,7 +187,7 @@ namespace Case.Characters
         {
             if(_attackTarget!= null)
             {
-                Quaternion targetRotate = Quaternion.LookRotation(_attackTarget.position - transform.position);
+                Quaternion targetRotate = Quaternion.LookRotation(Vector3.right * (_attackTarget.position.x - transform.position.x) + Vector3.forward * (_attackTarget.position.z - transform.position.z));
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotate, Time.deltaTime * 200);
             }
         }
