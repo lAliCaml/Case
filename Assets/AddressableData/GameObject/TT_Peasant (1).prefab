@@ -678,6 +678,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8389942858733368128}
   - component: {fileID: 8389942858733368131}
+  - component: {fileID: 16063794}
   m_Layer: 0
   m_Name: TT_Peasant (1)
   m_TagString: Untagged
@@ -692,7 +693,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8389942858733368129}
-  m_LocalRotation: {x: -0, y: 0.9773156, z: -0, w: -0.21178801}
+  m_LocalRotation: {x: 0, y: 0.9773163, z: -0, w: -0.21178517}
   m_LocalPosition: {x: 12.82, y: -6.2, z: -35.71}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
@@ -780,6 +781,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &16063794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389942858733368129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa91051afda8244a90c606426b3d324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _anim: {fileID: 8389942858733368131}
 --- !u!1 &8389942858741529907
 GameObject:
   m_ObjectHideFlags: 0

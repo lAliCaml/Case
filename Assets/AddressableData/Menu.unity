@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text_Percent: {fileID: 1588331076}
   assetLabel:
-  - m_LabelString: default
+  - m_LabelString: Level1
   _references: []
   m_LoadingSlider: {fileID: 4073143947280504398}
 --- !u!1 &777290754

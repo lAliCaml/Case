@@ -9,10 +9,10 @@ namespace Case.BorderControl
     {
         public static BorderManager Instance;
 
-        [SerializeField] private GameObject _leftBorder;
-        [SerializeField] private GameObject _rightBorder;
+        [SerializeField] private GameObject[] _leftBorder;
+        [SerializeField] private GameObject[] _rightBorder;
 
-        private Transform transformChange;
+        private Transform[] transformChange;
 
         void Start()
         {
@@ -27,8 +27,13 @@ namespace Case.BorderControl
 
         public void BorderCondition(bool probability)
         {
-            _leftBorder.SetActive(probability);
-            _rightBorder.SetActive(probability);
+            for (int i = 0; i < 2; i++)
+            {
+                _leftBorder[i].SetActive(probability);
+                _rightBorder[i].SetActive(probability);
+            }
+
+            
         }
 
        
@@ -37,30 +42,43 @@ namespace Case.BorderControl
 
             StartCoroutine(ChangeBorderSettings(name));
 
-            _leftBorder.SetActive(true);
-            _rightBorder.SetActive(true);
+            for (int i = 0; i < 2; i++)
+            {
+                _leftBorder[i].SetActive(true);
+                _rightBorder[i].SetActive(true);
+            }
 
-           
+            transformChange = new Transform[2];
+
+
 
             if (name == "Left")
             {
-                transformChange = _leftBorder.transform;
+                transformChange[0] = _leftBorder[0].transform;
+                transformChange[1] = _leftBorder[1].transform;
             }
             else if (name == "Right")
             {
-                transformChange = _rightBorder.transform;
+                transformChange[0] = _rightBorder[0].transform;
+                transformChange[1] = _rightBorder[1].transform;
             }
 
-            transformChange.DOScaleZ(20, 1);
-            transformChange.DOMoveZ(25, 1);
+            transformChange[0].DOScaleZ(20, 1);
+            transformChange[0].DOMoveZ(25, 1);
+
+            transformChange[1].DOScaleZ(48, 1);
+            transformChange[1].DOMoveZ(-11, 1);
         }
 
         IEnumerator ChangeBorderSettings(string name)
         {
             yield return new WaitForSeconds(2);
 
-            _leftBorder.SetActive(false);
-            _rightBorder.SetActive(false);
+            for (int i = 0; i < 2; i++)
+            {
+                _leftBorder[i].SetActive(false);
+                _rightBorder[i].SetActive(false);
+            }
         }
     }
 }
