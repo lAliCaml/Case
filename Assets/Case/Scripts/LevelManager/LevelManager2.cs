@@ -24,6 +24,8 @@ public class LevelManager2 : MonoBehaviour
 
     private string language;
 
+    [SerializeField] private Text text_try;
+
     void OnEnable()
     {
         m_SceneHandle = Addressables.DownloadDependenciesAsync(assetLabel, Addressables.MergeMode.Intersection);
@@ -74,7 +76,10 @@ public class LevelManager2 : MonoBehaviour
         if (m_SceneHandle.GetDownloadStatus().Percent >= 1 && !_isLoaded)
         {
             _isLoaded = true;
-            Addressables.LoadSceneAsync("Level_1");
+            ManagerDownload.ListDownload.names = "Level loaded" + " \n";
+            
         }
+
+        
     }
 }

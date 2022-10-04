@@ -80,7 +80,8 @@ namespace Case.Characters
             {
                 if (!_isAttack && !_haveTarget)
                 {
-                    if(gameObject.CompareTag("Friend"))
+                    _agent.enabled = true;
+                    if (gameObject.CompareTag("Friend"))
                     {
                         _agent.SetDestination( transform.position + Vector3.forward * 25 - Vector3.up * transform.position.y);
                     }
@@ -95,12 +96,17 @@ namespace Case.Characters
                 yield return new WaitForSeconds(.25f);
             }
 
-            _agent.ResetPath();
+            if(_agent.isActiveAndEnabled)
+            {
+                _agent.ResetPath();
+            }
+            
             _animControl.IdleMode();
         }
 
         private void RunToTheTarget(Transform target)
         {
+            _agent.enabled = true;
             _agent.SetDestination(target.position);
         }
 
@@ -112,6 +118,7 @@ namespace Case.Characters
 
         IEnumerator FindEnemy()
         {
+            yield return new WaitForSeconds(.1f);
             while (true)
             {
                 if (!_isAttack)
@@ -187,6 +194,7 @@ namespace Case.Characters
         {
             _isAttack = true;
             _agent.ResetPath();
+            _agent.enabled = false;
             _animControl.AttackMode();
             _attackTarget = target;
         }
@@ -207,7 +215,7 @@ namespace Case.Characters
          */
         public virtual void Attack()
         {
-
+            _agent.enabled = true;
             _isAttack = false;
             _haveTarget = false;
         }

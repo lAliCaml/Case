@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
     public GameObject uIGameObject;
     float progress;
 
+
+    [SerializeField] private Text text_try;
+
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -54,6 +58,11 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    public void Update()
+    {
+        text_try.text = ManagerDownload.ListDownload.names;
+    }
+
 
     private void SceneDownloadComplete(AsyncOperationHandle<SceneInstance> _handle)
     {
@@ -62,6 +71,8 @@ public class LevelManager : MonoBehaviour
             uIGameObject.SetActive(false);
             handle = _handle;
             text_Percent.text = "Tamamlandý";
+            ManagerDownload.ListDownload.names += "Level loaded" + " \n";
+
 
             Destroy(this.gameObject);
             //   StartCoroutine(UnloadScene());

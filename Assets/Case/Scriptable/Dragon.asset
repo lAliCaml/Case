@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dragon
   m_EditorClassIdentifier: 
   Healty: 50
-  Attack: 50
+  Attack: 15
   Speed: 3.5
   ScanOffset: {x: 0, y: 0, z: 0}
-  ScanArea: {x: 20, y: 20, z: 20}
-  AttackRange: 40
+  ScanArea: {x: 25, y: 20, z: 25}
+  AttackRange: 35
   Character: {fileID: 7181943413142729025, guid: 2b24e331066b0cc439f50f90f8241491, type: 3}
   Energy: 5

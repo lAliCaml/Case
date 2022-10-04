@@ -327,6 +327,561 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
+  - m_GUID: d9ae4c3fcfebd4a49b152fcd0ce21d98
+    m_Address: Assets/AddressableData/Level_1/Lightmap-0_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 5c2dbf1743d916b40ba6b47409e9330c
+    m_Address: Assets/AddressableData/Level_1/Lightmap-0_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 4843b37dfd9bd8e4c985dbef943e132a
+    m_Address: Assets/AddressableData/Level_1/Lightmap-0_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 1df3ff230d5958346bb8c0fa4a7e9b3b
+    m_Address: Assets/AddressableData/Level_1/Lightmap-1_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 582899f7857d09344a1c0c389567b088
+    m_Address: Assets/AddressableData/Level_1/Lightmap-1_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 344e565ccb525c04a83c851f60a834e6
+    m_Address: Assets/AddressableData/Level_1/Lightmap-1_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: cda88ae55579a794abf454c49c513499
+    m_Address: Assets/AddressableData/Level_1/Lightmap-2_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: e9c2147d9ba526b419089a1df2c6c2b6
+    m_Address: Assets/AddressableData/Level_1/Lightmap-2_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 11898694f3f452c4fbb9b333a1920a1c
+    m_Address: Assets/AddressableData/Level_1/Lightmap-2_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: c70b6eb30aaf66b4bb1a0b54b8268e1a
+    m_Address: Assets/AddressableData/Level_1/Lightmap-3_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 9fe5eb28e92c6b64abfe22eb5b18f653
+    m_Address: Assets/AddressableData/Level_1/Lightmap-3_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: cdac58ed3237d164783f97f3ce0aca41
+    m_Address: Assets/AddressableData/Level_1/Lightmap-3_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 9897f7ab221763c429006246da6516ea
+    m_Address: Assets/AddressableData/Level_1/Lightmap-4_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: f5d1010d70b62c543ba0b08d817292a3
+    m_Address: Assets/AddressableData/Level_1/Lightmap-4_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 2ea0b575df104a242af5c425bd1f5fbe
+    m_Address: Assets/AddressableData/Level_1/Lightmap-4_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: a16fa9b6abc93944e8c06f971a40e275
+    m_Address: Assets/AddressableData/Level_1/Lightmap-5_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: a982eba6a62ab80499bd0b95a34b048b
+    m_Address: Assets/AddressableData/Level_1/Lightmap-5_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: ca0611c146082cd46b79b5d62326f89d
+    m_Address: Assets/AddressableData/Level_1/Lightmap-5_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: d9937117535240a46a75c8579f2b0860
+    m_Address: Assets/AddressableData/Level_1/Lightmap-6_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 3fb2ca47dfab6a343857f86d67edc2f4
+    m_Address: Assets/AddressableData/Level_1/Lightmap-6_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: f29dec3f11586a541b7caeedefebc6c5
+    m_Address: Assets/AddressableData/Level_1/Lightmap-6_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 1f4e63e30b80a0a48a3aa6d146653d04
+    m_Address: Assets/AddressableData/Level_1/Lightmap-7_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: d35808efcde0e864ab457102bf4f06d6
+    m_Address: Assets/AddressableData/Level_1/Lightmap-7_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 82c3ce384d706244b866fe4e9ce8b7b0
+    m_Address: Assets/AddressableData/Level_1/Lightmap-7_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 9dd73f13f7b69df4e9feac0d6c4955ab
+    m_Address: Assets/AddressableData/Level_1/Lightmap-8_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 5d81c2fe4d04c7d4f94ce7604add66e6
+    m_Address: Assets/AddressableData/Level_1/Lightmap-8_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 8d2b2f2a4239a8141a6ad4f08958a8f8
+    m_Address: Assets/AddressableData/Level_1/Lightmap-8_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: e9fad76ccbcd64b4daacbefb57dfc5f1
+    m_Address: Assets/AddressableData/Level_1/Lightmap-9_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 339046c9068c0ed408ac4df7660acf23
+    m_Address: Assets/AddressableData/Level_1/Lightmap-9_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 525e9b1f0d41252458ad1c890dc400b8
+    m_Address: Assets/AddressableData/Level_1/Lightmap-9_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 6612a57e5768e194da415aded6d731a5
+    m_Address: Assets/AddressableData/Level_1/Lightmap-10_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: b5e2eac8931ea524fa13152c85c02b3e
+    m_Address: Assets/AddressableData/Level_1/Lightmap-10_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 743a34f9b96d1ea4193e93771edf0077
+    m_Address: Assets/AddressableData/Level_1/Lightmap-10_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: e4ac9e09659c83243a057a44b7562974
+    m_Address: Assets/AddressableData/Level_1/Lightmap-11_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: a31090d698980b74080a28757b162a7c
+    m_Address: Assets/AddressableData/Level_1/Lightmap-11_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 698ac7a73c22a2946a4c4f7ed049b0c3
+    m_Address: Assets/AddressableData/Level_1/Lightmap-11_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 455e1c366c94b3d49b4133040b254c96
+    m_Address: Assets/AddressableData/Level_1/Lightmap-12_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 9147992c3606d9f4d923e8f79761c48e
+    m_Address: Assets/AddressableData/Level_1/Lightmap-12_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 850aa03f633b3c34db483b1d33fd6139
+    m_Address: Assets/AddressableData/Level_1/Lightmap-12_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 2c85e9f1498dee0418f9bd485d690e1c
+    m_Address: Assets/AddressableData/Level_1/Lightmap-13_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: c879de757d29bc04c87debb63d2ecb5c
+    m_Address: Assets/AddressableData/Level_1/Lightmap-13_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 61d222e98d08bd1488630d3bbfdea173
+    m_Address: Assets/AddressableData/Level_1/Lightmap-13_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: b2798ecaded72c443ac880b9a9f2b8ee
+    m_Address: Assets/AddressableData/Level_1/Lightmap-14_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: e64e5c95b891c924db8e29458410f7c2
+    m_Address: Assets/AddressableData/Level_1/Lightmap-14_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 3fcb27fb9ca31e245b8428d401469adf
+    m_Address: Assets/AddressableData/Level_1/Lightmap-14_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: c3f398aed41c8a14daa770590dd5be44
+    m_Address: Assets/AddressableData/Level_1/Lightmap-15_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: c79458508daae494b949043d726530ab
+    m_Address: Assets/AddressableData/Level_1/Lightmap-15_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: aef88f43631ffd74dad1c2fc7bc3f4b9
+    m_Address: Assets/AddressableData/Level_1/Lightmap-15_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: c901bb1891b3bfb44b6f23f9a0ad7cdd
+    m_Address: Assets/AddressableData/Level_1/Lightmap-16_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: e481950cccaeb3a43923f2e4133bcd33
+    m_Address: Assets/AddressableData/Level_1/Lightmap-16_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 952ec995be4ed024da3852e3f850a1c4
+    m_Address: Assets/AddressableData/Level_1/Lightmap-16_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 00d11f30b47351a489bca7fcf57d50eb
+    m_Address: Assets/AddressableData/Level_1/Lightmap-17_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 1359423c40a3b5d44942ca349f6240dd
+    m_Address: Assets/AddressableData/Level_1/Lightmap-17_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 5fd3fbf17f9b43c4bbc3edffdd42dbdb
+    m_Address: Assets/AddressableData/Level_1/Lightmap-17_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: d8c66f5e4dbdb1546b5fe0386dba1878
+    m_Address: Assets/AddressableData/Level_1/Lightmap-18_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: a2f86cee94f27324ca8c9e88ebe7d12f
+    m_Address: Assets/AddressableData/Level_1/Lightmap-18_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 51969080e37ab5a408175a749854f463
+    m_Address: Assets/AddressableData/Level_1/Lightmap-18_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: b6a254bf4b1b53c4585a29aa7ad629b5
+    m_Address: Assets/AddressableData/Level_1/Lightmap-19_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 9bd795961c4ea914fb9ab5ab5ad13e5a
+    m_Address: Assets/AddressableData/Level_1/Lightmap-19_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: fe5501832bcd95241b814a1f2449fd40
+    m_Address: Assets/AddressableData/Level_1/Lightmap-19_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: ba8870e3c9b800c47a9a737c3ce1bb14
+    m_Address: Assets/AddressableData/Level_1/Lightmap-20_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: a0ee7a32f80cd504ebb206ccfee56404
+    m_Address: Assets/AddressableData/Level_1/Lightmap-20_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 92914b35a764ca5408b4f3a7bc266589
+    m_Address: Assets/AddressableData/Level_1/Lightmap-20_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 487e47f0c32922f47b6dd6ca496b436b
+    m_Address: Assets/AddressableData/Level_1/Lightmap-21_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 620e7c6c364f74d4c99776403a19ba54
+    m_Address: Assets/AddressableData/Level_1/Lightmap-21_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 197475baf3a298d439a19a7f03d1a286
+    m_Address: Assets/AddressableData/Level_1/Lightmap-21_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: b289f36c2ce08094994e99f1e6502ae9
+    m_Address: Assets/AddressableData/Level_1/Lightmap-22_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: f405da7901cc3be498b199c81230cf83
+    m_Address: Assets/AddressableData/Level_1/Lightmap-22_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 3e99300400dffa0459a4c89ffbcb9c00
+    m_Address: Assets/AddressableData/Level_1/Lightmap-22_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: b68dde7d5f99e664a8b1f0536838fbe9
+    m_Address: Assets/AddressableData/Level_1/Lightmap-23_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 17620ab1800fe584093eccf9e835e4ce
+    m_Address: Assets/AddressableData/Level_1/Lightmap-23_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: dd1a8a37b63467847b650ee4e3e6e43a
+    m_Address: Assets/AddressableData/Level_1/Lightmap-23_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 05efbc5f65d174b449e23e52109c4b11
+    m_Address: Assets/AddressableData/Level_1/Lightmap-24_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 6ddd10585c6c91f48ab05969c68a3b53
+    m_Address: Assets/AddressableData/Level_1/Lightmap-24_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: ebabb8962626023448979c898cfdd398
+    m_Address: Assets/AddressableData/Level_1/Lightmap-24_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: cfbc2852d4befc842bd106d03467f3e0
+    m_Address: Assets/AddressableData/Level_1/Lightmap-25_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 3a286afed229ef749bbef297a227e206
+    m_Address: Assets/AddressableData/Level_1/Lightmap-25_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 9c2d6fd85d4bab44784e36d95c5096fc
+    m_Address: Assets/AddressableData/Level_1/Lightmap-25_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 51e7e41bfa7b4724c9868c3cd59f40dd
+    m_Address: Assets/AddressableData/Level_1/Lightmap-26_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: b4ffa14c0720a8544a947846e69a110f
+    m_Address: Assets/AddressableData/Level_1/Lightmap-26_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 063fdab2370c10e49ae222bff4702cb9
+    m_Address: Assets/AddressableData/Level_1/Lightmap-26_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: fc0f1b72c30ea57499ccd7e324389b1d
+    m_Address: Assets/AddressableData/Level_1/Lightmap-27_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: e66a9f1aada673849bac3e2442722e2c
+    m_Address: Assets/AddressableData/Level_1/Lightmap-27_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 89faa84b5dc700e478a4b269c167fb15
+    m_Address: Assets/AddressableData/Level_1/Lightmap-27_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 8e9dd624a983afe4e91ce4471dc3292b
+    m_Address: Assets/AddressableData/Level_1/Lightmap-28_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: ca4176bec687369439407b4b088b35ca
+    m_Address: Assets/AddressableData/Level_1/Lightmap-28_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 8315bbd041e0c7747951d4ae20872244
+    m_Address: Assets/AddressableData/Level_1/Lightmap-28_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 0758538e02db0024cb00e763452ab8c3
+    m_Address: Assets/AddressableData/Level_1/Lightmap-29_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 2f4a6351b0634874eb8ea24ed7d7b7b5
+    m_Address: Assets/AddressableData/Level_1/Lightmap-29_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 60a649bbb9006b744a3e7995a3bceac8
+    m_Address: Assets/AddressableData/Level_1/Lightmap-29_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: cde19cd158a00c0499bea14b026b5bac
+    m_Address: Assets/AddressableData/Level_1/Lightmap-30_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 2921a94c491019f4c8176024ef5a783c
+    m_Address: Assets/AddressableData/Level_1/Lightmap-30_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 09330a83f89948549b929165475ec14d
+    m_Address: Assets/AddressableData/Level_1/Lightmap-30_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: a49ef5d2b2b71e64db8be9208b1cf729
+    m_Address: Assets/AddressableData/Level_1/Lightmap-31_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 3950df7b5ef03d64db85882b6cb09059
+    m_Address: Assets/AddressableData/Level_1/Lightmap-31_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 6d1c5650bf983b6488b9674cf8b88b14
+    m_Address: Assets/AddressableData/Level_1/Lightmap-31_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: f4d0de73506b08546a94a403831a5e7b
+    m_Address: Assets/AddressableData/Level_1/Lightmap-32_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: da09b9a708627954cafa147ff8f5fdd8
+    m_Address: Assets/AddressableData/Level_1/Lightmap-32_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: f2fa5f1e86b938b469272a3906068e8a
+    m_Address: Assets/AddressableData/Level_1/Lightmap-32_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 4a8019687ef56d74eba83d48b507bdc8
+    m_Address: Assets/AddressableData/Level_1/Lightmap-33_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 0f4c8008061f4f548bbde6e24794ad84
+    m_Address: Assets/AddressableData/Level_1/Lightmap-33_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 32756151e1cf8c643954aba01c04f195
+    m_Address: Assets/AddressableData/Level_1/Lightmap-33_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: b14b8690d366a354e9c5197f08a0cc75
+    m_Address: Assets/AddressableData/Level_1/Lightmap-34_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 3931da9c5fad31a448d9099461170051
+    m_Address: Assets/AddressableData/Level_1/Lightmap-34_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: dc587cc5c9248764ea624692248f76bf
+    m_Address: Assets/AddressableData/Level_1/Lightmap-34_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 20c184c3a0e04ba45862a33bfbe33815
+    m_Address: Assets/AddressableData/Level_1/Lightmap-35_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 2f438d0db3ac1cf4c9528b98853f25fd
+    m_Address: Assets/AddressableData/Level_1/Lightmap-35_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: a8ede93a1958fcd4cb937f2bc6615d05
+    m_Address: Assets/AddressableData/Level_1/Lightmap-35_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 8777d7744c28748438147ee6043db51c
+    m_Address: Assets/AddressableData/Level_1/Lightmap-36_comp_light.exr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 57efc65e9aea8a24b9146426d8bfec69
+    m_Address: Assets/AddressableData/Level_1/Lightmap-36_comp_dir.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 0d6ae159f2c299c4a975492255d7b6c3
+    m_Address: Assets/AddressableData/Level_1/Lightmap-36_comp_shadowmask.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7648fd1afb2c9b943bad7c233ffa35b1, type: 2}
   m_SchemaSet:
