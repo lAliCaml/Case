@@ -19,9 +19,6 @@ namespace Case.Health
 
         private void Start()
         {
-            
-
-
             if (gameObject.CompareTag("Friend"))
             {
                 _healthImage.color = Color.red;
@@ -34,7 +31,8 @@ namespace Case.Health
 
         public void Update()
         {
-            _canvas.LookAt(Camera.main.transform.position + Vector3.up * 1000);
+            _canvas.transform.DORotate(Vector3.right * 60, .1f);// = Quaternion.Euler(Vector3.right * 60); //DOLocalRotate(Vector3.right * 60, 1);
+          //  _canvas.LookAt(Camera.main.transform.position + Vector3.up * 1000);
         }
 
         public void HealthBarShow(float rate)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 871312489320629567}
   - component: {fileID: 871312489339990491}
   - component: {fileID: 871312489338862389}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Explo_add
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4778,7 +4778,7 @@ GameObject:
   - component: {fileID: 871312489320550091}
   - component: {fileID: 871312489340066811}
   - component: {fileID: 871312489338831089}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Smoke_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9545,7 +9545,7 @@ GameObject:
   - component: {fileID: 871312489320646439}
   - component: {fileID: 871312489340035661}
   - component: {fileID: 871312489338870095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Debris_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14276,7 +14276,7 @@ GameObject:
   - component: {fileID: 871312489320580165}
   - component: {fileID: 871312489339975349}
   - component: {fileID: 871312489338871909}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FX_machine_destroyed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19065,7 +19065,7 @@ GameObject:
   - component: {fileID: 5257428604350119588}
   - component: {fileID: 505949806768931943}
   - component: {fileID: 6032474725212295681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Smoke_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}

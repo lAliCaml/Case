@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5365135005785110491}
   - component: {fileID: 5365135005784012059}
   - component: {fileID: 5365135005786205157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 9071575690284845350}
   - component: {fileID: 9071575690284845351}
   - component: {fileID: 1031997095460704215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow
   m_TagString: Friend
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b614097e585a54b889acdb77b43a3b, type: 3}
   m_Name: Giant
   m_EditorClassIdentifier: 
-  Healty: 175
+  Healty: 100
   Attack: 50
   Speed: 3
   ScanOffset: {x: 0, y: 1, z: 0}

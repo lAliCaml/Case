@@ -82,11 +82,11 @@ namespace Case.Characters
                 {
                     if(gameObject.CompareTag("Friend"))
                     {
-                        _agent.SetDestination( transform.position + Vector3.forward * 12 - Vector3.up * transform.position.y);
+                        _agent.SetDestination( transform.position + Vector3.forward * 25 - Vector3.up * transform.position.y);
                     }
                     else if(gameObject.CompareTag("Enemy"))
                     {
-                        _agent.SetDestination(transform.position - Vector3.forward * 12 - Vector3.up * transform.position.y);
+                        _agent.SetDestination(transform.position - Vector3.forward * 25 - Vector3.up * transform.position.y);
                         
                     }
                     _animControl.RunMode();
