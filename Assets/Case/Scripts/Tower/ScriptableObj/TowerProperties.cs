@@ -9,7 +9,8 @@ namespace Case.Towers
     {
         public int Healty;
         public int Attack;
-        public float ScanArea;
+
+        public Vector3 ScanArea; //Because of detect enemy around 
     }
 
 }

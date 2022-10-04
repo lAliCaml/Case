@@ -33,6 +33,7 @@ public class LevelManager2 : MonoBehaviour
 
         //m_SceneHandle = Addressables.DownloadDependenciesAsync(_references);
            m_SceneHandle.Completed += OnSceneLoaded;
+
     }
 
     private void OnDisable()

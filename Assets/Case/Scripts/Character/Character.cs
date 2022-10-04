@@ -15,7 +15,8 @@ namespace Case.Characters
         private int _health;
         protected int _attack;
         private float _speed;
-        private float _scanArea;
+        private Vector3 _scanOffset;
+        private Vector3 _scanArea;
         private float _attackRange;
 
         [Header("Components")]
@@ -41,6 +42,7 @@ namespace Case.Characters
             _health = _characterProperties.Healty;
             _attack = _characterProperties.Attack;
             _speed = _characterProperties.Speed;
+            _scanOffset = _characterProperties.ScanOffset;
             _scanArea = _characterProperties.ScanArea;
             _attackRange = _characterProperties.AttackRange;
 
@@ -80,14 +82,15 @@ namespace Case.Characters
                 {
                     if(gameObject.CompareTag("Friend"))
                     {
-                        _agent.SetDestination( transform.position + Vector3.forward * 12);
+                        _agent.SetDestination( transform.position + Vector3.forward * 12 - Vector3.up * transform.position.y);
                     }
                     else if(gameObject.CompareTag("Enemy"))
                     {
-                        _agent.SetDestination(transform.position - Vector3.forward * 12);
+                        _agent.SetDestination(transform.position - Vector3.forward * 12 - Vector3.up * transform.position.y);
                         
                     }
                     _animControl.RunMode();
+                   
                 }
                 yield return new WaitForSeconds(.25f);
             }
@@ -122,10 +125,11 @@ namespace Case.Characters
 
         private void ScanningEnemy()
         {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _scanArea); //Create sphere collider for the hit with enemies collider
+            Collider[] hitColliders = Physics.OverlapBox(transform.position + _scanOffset, _scanArea); //Create sphere collider for the hit with enemies collider
 
             GameObject nearestEnemy = null;
-            float scanArea = _scanArea;
+            //  float scanArea = _scanArea;
+            float scanArea = 20;
 
             /*
              * Calculate hit colliders distance and find which one is closest
@@ -167,7 +171,11 @@ namespace Case.Characters
 
         }
 
-        
+      /*  private void OnDrawGizmos() 
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(transform.position + _characterProperties.ScanOffset, _characterProperties.ScanArea);
+        }*/
 
         #endregion
 

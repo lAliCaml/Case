@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Healty: 200
   Attack: 5
-  ScanArea: 15
+  ScanArea: {x: 15, y: 25, z: 20}

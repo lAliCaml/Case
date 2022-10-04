@@ -17,93 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 330a1364577126543b61dc306df3e715
   m_SerializeEntries:
-  - m_GUID: c60a7b59f7aca984188d73690b80544d
-    m_Address: Assets/AddressableData/GameObject/Stables_1 (1).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 523ea2f14d500fe41b54b9987a994f6f
-    m_Address: Assets/AddressableData/GameObject/MageTower (1).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 4e02bfbb19915b148a99852c5a1fe537
-    m_Address: Assets/AddressableData/GameObject/Farm (1).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: ac3b90039f32daf4ea8c7b8a92dd756d
-    m_Address: Assets/AddressableData/GameObject/Castle (Red).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 82435e10a8a24df4e9ff80a65cb8a3af
-    m_Address: Assets/AddressableData/GameObject/Swordman.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 0e72590a1f37f5041aeae27d8101bf6a
-    m_Address: Assets/AddressableData/GameObject/LumberMill_0 (1).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 62561cdfd90bb3744b44a5a4abe4619b
-    m_Address: Assets/AddressableData/GameObject/Temple_0 (1).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 1f6855046323f0c48a7fb762b9937956
-    m_Address: Assets/AddressableData/GameObject/Castle (Purple).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
   - m_GUID: 509c46b6382d78b419a74d96ffb45146
     m_Address: Assets/AddressableData/GameObject/Farm (2).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 55a525072fac2aa4dbfc017166a5c7b0
-    m_Address: Assets/AddressableData/GameObject/Bridge_Right.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 19b539a0900b21143b392f6fd6124f7e
-    m_Address: Assets/AddressableData/GameObject/Tower 1.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 34b432ecc78d1c947a576b8e2054851a
-    m_Address: Assets/AddressableData/GameObject/Castle (Purple) 1.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 965bc9e8fdaa5cc4881acb405b86f174
-    m_Address: Assets/AddressableData/GameObject/Arrow.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 4e74dc1af3a4f204cb4c9a72b6e70541
-    m_Address: Assets/AddressableData/GameObject/TownHall.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: d042ac7721ef2eb4089e6c352f206534
-    m_Address: Assets/AddressableData/GameObject/TT_Peasant.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 0fc08cbf87b023e44a4254b890fb6cc7
-    m_Address: Assets/AddressableData/GameObject/Library (1).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 6922c10166bf2ac43857ccbcb5c9c2fd
-    m_Address: Assets/AddressableData/GameObject/TT_Peasant (1).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 6d7eb94f35679b144b79e5ad74d8b09f
-    m_Address: Assets/AddressableData/GameObject/Bridge_Left.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
@@ -117,28 +32,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: 306cdbdbbd26c0444a339a73f7276df2
-    m_Address: Assets/AddressableData/GameObject/Archer.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: baf237b480f59ba4bb3f5b9085eadd0b
-    m_Address: Assets/AddressableData/GameObject/TT_Peasant (2).prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: 71525d98815c6354b95d7c67be912209
-    m_Address: Assets/AddressableData/Level_1/NavMesh.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
   - m_GUID: 5c228d136fe3ebb4f9fc99aafee48ad3
     m_Address: Assets/AddressableData/GameObject/TT_Peasant (3).prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: dd17cefebe6ecaf4e92d169b72156a8f
-    m_Address: Assets/AddressableData/Level_1/New Lighting Settings.lighting
+  - m_GUID: 0fc08cbf87b023e44a4254b890fb6cc7
+    m_Address: Assets/AddressableData/GameObject/Library (1).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 431786bf14c64284d8f0c5330726b35a
+    m_Address: Assets/AddressableData/GameObject/DragonBall.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: d042ac7721ef2eb4089e6c352f206534
+    m_Address: Assets/AddressableData/GameObject/TT_Peasant.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
@@ -147,8 +57,43 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
+  - m_GUID: c60a7b59f7aca984188d73690b80544d
+    m_Address: Assets/AddressableData/GameObject/Stables_1 (1).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 965bc9e8fdaa5cc4881acb405b86f174
+    m_Address: Assets/AddressableData/GameObject/Arrow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 306cdbdbbd26c0444a339a73f7276df2
+    m_Address: Assets/AddressableData/GameObject/Archer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
   - m_GUID: ce5ccaaab6cac204a84c2b2505c0b1fe
     m_Address: Assets/AddressableData/GameObject/Flag.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 55a525072fac2aa4dbfc017166a5c7b0
+    m_Address: Assets/AddressableData/GameObject/Bridge_Right.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: baf237b480f59ba4bb3f5b9085eadd0b
+    m_Address: Assets/AddressableData/GameObject/TT_Peasant (2).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 62561cdfd90bb3744b44a5a4abe4619b
+    m_Address: Assets/AddressableData/GameObject/Temple_0 (1).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 82435e10a8a24df4e9ff80a65cb8a3af
+    m_Address: Assets/AddressableData/GameObject/Swordman.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
@@ -157,43 +102,53 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: 3fb3053a2c6c4b346b51634e6d401ff2
-    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_purple.mat
+  - m_GUID: 2b24e331066b0cc439f50f90f8241491
+    m_Address: Assets/AddressableData/GameObject/Dragon.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: 23fe6e6315af1c6458ea91a3b762eaa4
-    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_pink.mat
+  - m_GUID: 523ea2f14d500fe41b54b9987a994f6f
+    m_Address: Assets/AddressableData/GameObject/MageTower (1).prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: f9ec407a080d408459742617c9dc6607
-    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_green.mat
+  - m_GUID: 4e02bfbb19915b148a99852c5a1fe537
+    m_Address: Assets/AddressableData/GameObject/Farm (1).prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: 19f3b2158b0cd134798555d774de0b3f
-    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_blueB.mat
+  - m_GUID: 19b539a0900b21143b392f6fd6124f7e
+    m_Address: Assets/AddressableData/GameObject/Tower 1.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: 792a4bad9e08b8e41bfbd3f0b8aac1ab
-    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_blue.mat
+  - m_GUID: 4e74dc1af3a4f204cb4c9a72b6e70541
+    m_Address: Assets/AddressableData/GameObject/TownHall.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: 1840301e13d8eb34c83a2a124535cfd1
-    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_tan.mat
+  - m_GUID: 71525d98815c6354b95d7c67be912209
+    m_Address: Assets/AddressableData/Level_1/NavMesh.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: 9d0174ac4f9a2a8418640e7cc75bed39
-    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_pink.mat
+  - m_GUID: ac3b90039f32daf4ea8c7b8a92dd756d
+    m_Address: Assets/AddressableData/GameObject/Castle (Red).prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: eb5db199f9db9ec46ad189ea2f8dd9b1
-    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_blueB.mat
+  - m_GUID: 1f6855046323f0c48a7fb762b9937956
+    m_Address: Assets/AddressableData/GameObject/Castle (Purple).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 34b432ecc78d1c947a576b8e2054851a
+    m_Address: Assets/AddressableData/GameObject/Castle (Purple) 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 6922c10166bf2ac43857ccbcb5c9c2fd
+    m_Address: Assets/AddressableData/GameObject/TT_Peasant (1).prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
@@ -207,18 +162,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: a7b844ebfbdd09b4e8a009a9e2c59db4
-    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_brown.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: a2085ab309c94a143a706621cd42e213
-    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_red.mat
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: f3fe8ac1080fe4c439720ce9e50b5df1
-    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_purple.mat
+  - m_GUID: 1131ac1e42ee4884ab91bd69310a2715
+    m_Address: Assets/AddressableData/Materials/RedHP.mat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
@@ -227,8 +172,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: 2ebd809f85e812145a04495b21bbca36
-    m_Address: Assets/AddressableData/Materials/TT_Banner_purple.mat
+  - m_GUID: a7b844ebfbdd09b4e8a009a9e2c59db4
+    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_brown.mat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
@@ -237,8 +182,53 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
-  - m_GUID: 5576339cf428d70439853b6ef361b099
-    m_Address: Assets/AddressableData/Level_1/ReflectionProbe-0.exr
+  - m_GUID: 2ebd809f85e812145a04495b21bbca36
+    m_Address: Assets/AddressableData/Materials/TT_Banner_purple.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: f3fe8ac1080fe4c439720ce9e50b5df1
+    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_purple.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 3fb3053a2c6c4b346b51634e6d401ff2
+    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_purple.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 23fe6e6315af1c6458ea91a3b762eaa4
+    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_pink.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 792a4bad9e08b8e41bfbd3f0b8aac1ab
+    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_blue.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: a2085ab309c94a143a706621cd42e213
+    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_red.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: eb5db199f9db9ec46ad189ea2f8dd9b1
+    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_blueB.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 19f3b2158b0cd134798555d774de0b3f
+    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_blueB.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 9d0174ac4f9a2a8418640e7cc75bed39
+    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_pink.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 1840301e13d8eb34c83a2a124535cfd1
+    m_Address: Assets/AddressableData/Materials/TT_RTS_buildings_tan.mat
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
@@ -254,11 +244,6 @@ MonoBehaviour:
     - Level1
   - m_GUID: 58070d2e94dfb6e4cacf0aec8c770c43
     m_Address: Assets/AddressableData/Textures/TT_RTS_Units_blue.tga
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Level1
-  - m_GUID: cfbf8134d05d8d54b9e4ca149a849fab
-    m_Address: Assets/AddressableData/Level_1/LightingData.asset
     m_ReadOnly: 0
     m_SerializedLabels:
     - Level1
@@ -300,19 +285,48 @@ MonoBehaviour:
   - m_GUID: c1df47a1f6f1ebd42b32d9c66daf15eb
     m_Address: "Assets/Case/Picture/Ekran g\xF6r\xFCnt\xFCs\xFC 2022-10-02 102548.png"
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Level1
   - m_GUID: 8b0901c3b24ad63419c05ac8e6937eaf
     m_Address: "Assets/Case/Picture/Ekran g\xF6r\xFCnt\xFCs\xFC 2022-09-27 130434.png"
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Level1
   - m_GUID: 786ce5132eb053a48a7b211fd5443125
     m_Address: "Assets/Case/Picture/Ekran g\xF6r\xFCnt\xFCs\xFC 2022-09-27 130502.png"
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Level1
   - m_GUID: 1339a4e599783ac4580592692473f197
     m_Address: "Assets/Case/Picture/Ekran g\xF6r\xFCnt\xFCs\xFC 2022-09-27 130526.png"
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 6d7eb94f35679b144b79e5ad74d8b09f
+    m_Address: Assets/AddressableData/GameObject/Bridge_Left.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 0e72590a1f37f5041aeae27d8101bf6a
+    m_Address: Assets/AddressableData/GameObject/LumberMill_0 (1).prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: f9ec407a080d408459742617c9dc6607
+    m_Address: Assets/AddressableData/Materials/TT_RTS_Units_green.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 8afba6e8fe9a67344ab7cb4677d3da0f
+    m_Address: Assets/AddressableData/Textures/RedHP.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
+  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
+    m_Address: Level_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Level1
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7648fd1afb2c9b943bad7c233ffa35b1, type: 2}
   m_SchemaSet:

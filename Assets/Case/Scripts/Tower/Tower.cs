@@ -16,7 +16,7 @@ namespace Case.Towers
         [Header("CharacterFeatures")]
         private int _health;
         private int _attack;
-        private float _scanArea;
+        private Vector3 _scanArea;
 
         [Header("Components")]
         [SerializeField] private HealtyBar _healtBar;
@@ -73,10 +73,11 @@ namespace Case.Towers
 
         private void ScanningEnemy()
         {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _scanArea);
+            Collider[] hitColliders = Physics.OverlapBox(transform.position, _scanArea);
+       
 
             GameObject nearestEnemy = null;
-            float scanArea = _scanArea;
+            float scanArea = 35;
 
             foreach (var hitObj in hitColliders)
             {
@@ -104,6 +105,12 @@ namespace Case.Towers
             }
 
         }
+
+      /* private void OnDrawGizmos() 
+       {
+           Gizmos.color = Color.red;
+           Gizmos.DrawWireCube(transform.position, _towerProperties.ScanArea);
+       }*/
 
 
         #endregion

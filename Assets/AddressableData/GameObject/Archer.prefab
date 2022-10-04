@@ -19162,7 +19162,7 @@ MonoBehaviour:
   _animControl: {fileID: 7300762607655578607}
   _healtBar: {fileID: 1428108046}
   _characterProperties: {fileID: 11400000, guid: 329d8b30cd37df044a2beac0e589290b, type: 2}
-  _arrow: {fileID: 7044264452260456712, guid: 431786bf14c64284d8f0c5330726b35a, type: 3}
+  _arrow: {fileID: 9071575690284845348, guid: 965bc9e8fdaa5cc4881acb405b86f174, type: 3}
 --- !u!136 &49220377
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19186,7 +19186,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8211501754676731081}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Speed: 3.5
   m_Acceleration: 50
   avoidancePriority: 50

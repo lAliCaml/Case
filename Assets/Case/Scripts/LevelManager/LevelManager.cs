@@ -12,12 +12,13 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private Slider m_LoadingSlider;
     [SerializeField] private Text text_Percent;
-    [SerializeField] private Text text_Info;
 
+    public AssetLabelReference[] assetLabel;
     [SerializeField] private AssetReference _scene;
     [SerializeField] private List<AssetReference> _references = new List<AssetReference>();
     private AsyncOperationHandle<SceneInstance> handle;
     public GameObject uIGameObject;
+    float progress;
 
     private void Awake()
     {
@@ -29,12 +30,11 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(DownloadScene());
     }
 
-    float progress;
+   
     IEnumerator DownloadScene()
     {
-        var downloadScene = Addressables.LoadSceneAsync(_scene, LoadSceneMode.Additive);
-        //downloadScene.Completed += SceneDownloadComplete;
-        text_Info.text = "Starting download";
+        var downloadScene = Addressables.LoadSceneAsync("Level_1", LoadSceneMode.Single);
+        downloadScene.Completed += SceneDownloadComplete;
         Debug.Log("Starting download");
 
        
@@ -44,33 +44,31 @@ public class LevelManager : MonoBehaviour
             progress = status.Percent;
 
             m_LoadingSlider.value = progress;
-            text_Percent.text = "%" + ((int)(progress * 100)).ToString();
-            Debug.Log((int)(progress * 100));
+            text_Percent.text = (downloadScene.GetDownloadStatus().DownloadedBytes).ToString() + " / " + downloadScene.GetDownloadStatus().TotalBytes.ToString(); // "%" + ((int)(progress * 100)).ToString();
             yield return null;
         }
 
-        text_Percent.text = "%" + ((int)(progress * 100)).ToString();
+        text_Percent.text = "%" + (100).ToString();
 
-        text_Info.text = "Complete download";
         Debug.Log("Complete download");
 
     }
 
 
-  /*  private void SceneDownloadComplete(AsyncOperationHandle<SceneInstance> _handle)
+    private void SceneDownloadComplete(AsyncOperationHandle<SceneInstance> _handle)
     {
         if (_handle.Status == AsyncOperationStatus.Succeeded)
         {
             uIGameObject.SetActive(false);
             handle = _handle;
-            text_Info.text = "";
-            text_Percent.text = "";
+            text_Percent.text = "Tamamlandý";
 
+            Destroy(this.gameObject);
             //   StartCoroutine(UnloadScene());
         }
-    }*/
+    }
 
-    private IEnumerator UnloadScene()
+  /*  private IEnumerator UnloadScene()
     {
         yield return new WaitForSeconds(2);
         Debug.Log("Unload Scene start");
@@ -84,6 +82,6 @@ public class LevelManager : MonoBehaviour
                 Debug.Log("Unload Scene");
             }
         };
-    }
+    }*/
 }
 

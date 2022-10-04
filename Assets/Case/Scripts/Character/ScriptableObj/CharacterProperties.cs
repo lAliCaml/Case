@@ -11,7 +11,10 @@ namespace Case.Characters
         public int Healty;
         public int Attack;
         public float Speed;
-        public float ScanArea; //Because of detect enemy around 
+
+        [Header("Attack Values")]
+        public Vector3 ScanOffset;
+        public Vector3 ScanArea; //Because of detect enemy around 
         public float AttackRange; //Because of attack enemy
 
         [Header("Create Character")]

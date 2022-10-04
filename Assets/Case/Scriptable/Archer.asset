@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b614097e585a54b889acdb77b43a3b, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  Healty: 20
+  Healty: 20000
   Attack: 25
   Speed: 3.5
-  ScanArea: 20
-  AttackRange: 15
+  ScanOffset: {x: 0, y: 1, z: 0}
+  ScanArea: {x: 50, y: 40, z: 50}
+  AttackRange: 70
   Character: {fileID: 8211501754676731081, guid: 306cdbdbbd26c0444a339a73f7276df2, type: 3}
   Energy: 2

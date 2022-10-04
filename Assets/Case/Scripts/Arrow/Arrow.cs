@@ -6,7 +6,7 @@ using Case.Health;
 
 public class Arrow : MonoBehaviour, IThrow
 {
-    private Transform _target;
+    public Transform _target;
     private int _attack;
 
 
@@ -18,11 +18,6 @@ public class Arrow : MonoBehaviour, IThrow
         _attack = attack;
         gameObject.tag = tag;
         StartCoroutine(FollowTarget());
-
-        if (_target == null)
-        {
-            Debug.Log("Hedef boþ");
-        }
     }
 
     IEnumerator FollowTarget()
@@ -30,17 +25,15 @@ public class Arrow : MonoBehaviour, IThrow
 
         while(true)
         {
-
             if (_target != null)
             {
                 transform.LookAt(_target.position + Vector3.up);
                 transform.Translate(Vector3.forward * Time.deltaTime * 30);
-                Debug.Log("Gidiyor");
             }
             else
             {
-                Debug.Log("Yok edildi");
-                //   Destroy(gameObject);
+                   Destroy(gameObject);
+                break;
             }
             yield return null;
         }
