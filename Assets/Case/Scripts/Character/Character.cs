@@ -58,6 +58,11 @@ namespace Case.Characters
             //Scale
             transform.localScale = Vector3.zero;
             transform.DOScale(Vector3.one, .15f);
+
+            if(gameObject.CompareTag("Friend"))
+            {
+                CameraControl.Instance.ChangeTarget(transform);
+            }
         }
 
         public void Initialize(string tag)
@@ -80,18 +85,18 @@ namespace Case.Characters
             {
                 if (!_isAttack && !_haveTarget)
                 {
-                    _agent.enabled = true;
                     if (gameObject.CompareTag("Friend"))
                     {
+                        _agent.enabled = true;
                         _agent.SetDestination( transform.position + Vector3.forward * 25 - Vector3.up * transform.position.y);
+                        _animControl.RunMode();
                     }
                     else if(gameObject.CompareTag("Enemy"))
                     {
+                        _agent.enabled = true;
                         _agent.SetDestination(transform.position - Vector3.forward * 25 - Vector3.up * transform.position.y);
-                        
+                        _animControl.RunMode();
                     }
-                    _animControl.RunMode();
-                   
                 }
                 yield return new WaitForSeconds(.25f);
             }
@@ -108,6 +113,7 @@ namespace Case.Characters
         {
             _agent.enabled = true;
             _agent.SetDestination(target.position);
+            _animControl.RunMode();
         }
 
         #endregion
@@ -119,7 +125,7 @@ namespace Case.Characters
         IEnumerator FindEnemy()
         {
             yield return new WaitForSeconds(.1f);
-            while (true)
+            while (!_isAttack)
             {
                 if (!_isAttack)
                 {
@@ -132,11 +138,11 @@ namespace Case.Characters
 
         private void ScanningEnemy()
         {
-            Collider[] hitColliders = Physics.OverlapBox(transform.position + _scanOffset, _scanArea); //Create sphere collider for the hit with enemies collider
+            Collider[] hitColliders = Physics.OverlapBox(transform.position + _scanOffset, _scanArea / 2); //Create sphere collider for the hit with enemies collider
 
             GameObject nearestEnemy = null;
             //  float scanArea = _scanArea;
-            float scanArea = 20;
+            float scanArea = 100;
 
             /*
              * Calculate hit colliders distance and find which one is closest
@@ -175,13 +181,17 @@ namespace Case.Characters
                 _haveTarget = true;
                 RunToTheTarget(nearestEnemy.transform);
             }
+            else
+            {
+                _haveTarget = false;
+            }
 
         }
 
-      /*  private void OnDrawGizmos() 
+       /* private void OnDrawGizmos() 
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(transform.position + _characterProperties.ScanOffset, _characterProperties.ScanArea);
+            Gizmos.DrawWireCube(transform.position + _scanOffset, _scanArea);
         }*/
 
         #endregion
@@ -218,6 +228,8 @@ namespace Case.Characters
             _agent.enabled = true;
             _isAttack = false;
             _haveTarget = false;
+
+            StartCoroutine(FindEnemy());
         }
 
         #endregion

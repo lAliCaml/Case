@@ -19,4 +19,4 @@ MonoBehaviour:
   ScanArea: {x: 25, y: 20, z: 25}
   AttackRange: 35
   Character: {fileID: 7181943413142729025, guid: 2b24e331066b0cc439f50f90f8241491, type: 3}
-  Energy: 5
+  Energy: 2

@@ -16,7 +16,7 @@ MonoBehaviour:
   Attack: 25
   Speed: 3.5
   ScanOffset: {x: 0, y: 1, z: 0}
-  ScanArea: {x: 50, y: 40, z: 50}
-  AttackRange: 70
+  ScanArea: {x: 20, y: 40, z: 20}
+  AttackRange: 25
   Character: {fileID: 8211501754676731081, guid: 306cdbdbbd26c0444a339a73f7276df2, type: 3}
   Energy: 2

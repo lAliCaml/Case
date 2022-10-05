@@ -8,5 +8,8 @@ using UnityEngine.UI;
 public class ListDownload : ScriptableObject
 {
     public string names;
+
+    public bool IsAdsLoaded;
+    public bool IsAssetDownloaded;
 }
 

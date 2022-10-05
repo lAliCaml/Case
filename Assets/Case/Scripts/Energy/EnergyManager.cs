@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Case.TimeControl;
 
 namespace Case.Energy
 {
@@ -15,6 +16,8 @@ namespace Case.Energy
         public float energy;
         private bool _isFilling;
 
+        public float EnergyRechargeRate;
+
       
 
         void Start()
@@ -24,6 +27,7 @@ namespace Case.Energy
             _energyText.text = ((int)energy).ToString();
             _energySlider.value = energy / 10;
             _isFilling = false;
+            EnergyRechargeRate = 1;
         }
 
         
@@ -43,7 +47,7 @@ namespace Case.Energy
             _isFilling = true;
             while (energy <= 10)
             {
-                energy += 1 * Time.deltaTime;
+                energy += EnergyRechargeRate * Time.deltaTime * .75f;
 
                 _energyText.text = ((int)energy).ToString();
                 _energySlider.value = energy / 10;
@@ -55,10 +59,4 @@ namespace Case.Energy
             _isFilling = false;
         }
     }
-
-  
-
-    
-
-
 }

@@ -9,10 +9,13 @@ public class BannerAds : MonoBehaviour
 {
     private BannerView bannerWiew;
     string AdsID;
+    AdRequest request;
+
     void Start()
     {
         RequestBanner();
     }
+
 
     void RequestBanner()
     {
@@ -20,27 +23,23 @@ public class BannerAds : MonoBehaviour
 
         bannerWiew = new BannerView(AdsID, AdSize.Banner, AdPosition.Bottom);
 
-        AdRequest request = new AdRequest.Builder().Build();
+        request = new AdRequest.Builder().Build();
+
+#if UNITY_EDITOR
+        bannerWiew.OnAdLoaded += HandleOnAdLoaded;
+#endif
 
         bannerWiew.LoadAd(request);
 
-        bannerWiew.OnAdLoaded += this.HandleOnAdLoaded;
+        bannerWiew.OnAdLoaded += HandleOnAdLoaded;
     }
-
 
 
     private void HandleOnAdLoaded(object sender, EventArgs e)
     {
         ManagerDownload.ListDownload.names += "Ads loaded" + " \n";
+        ManagerDownload.ListDownload.IsAdsLoaded = true;
         Debug.Log("Reklam yüklendi");
+
     }
-
-
-
-    void RemoveBanner()
-    {
-        bannerWiew.Destroy();
-    }
-
-
 }

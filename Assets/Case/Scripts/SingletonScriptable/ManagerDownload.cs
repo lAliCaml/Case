@@ -17,6 +17,8 @@ public class ManagerDownload : SingletonScriptableObject<ManagerDownload>
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
     private static void FirstInitialize()
     {
-        //Debug.Log("Yüklendi");
+        ListDownload.names = "";
+        ListDownload.IsAdsLoaded = false;
+        ListDownload.IsAssetDownloaded = false;
     }
 }

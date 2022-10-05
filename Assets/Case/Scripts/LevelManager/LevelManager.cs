@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine.AddressableAssets;
+using UnityEngine.UI;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
@@ -10,89 +10,102 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
 
-    [SerializeField] private Slider m_LoadingSlider;
+    public AsyncOperationHandle m_SceneHandle;
     [SerializeField] private Text text_Percent;
 
     public AssetLabelReference[] assetLabel;
-    [SerializeField] private AssetReference _scene;
-    [SerializeField] private List<AssetReference> _references = new List<AssetReference>();
-    private AsyncOperationHandle<SceneInstance> handle;
-    public GameObject uIGameObject;
-    float progress;
 
+    [SerializeField]
+    private Slider m_LoadingSlider;
+
+    private bool _isLoaded = false;
 
     [SerializeField] private Text text_try;
 
+    [SerializeField] private Button button_Play;
+    [SerializeField] private Text text_Loading;
 
-    private void Awake()
+
+    private void OnEnable()
     {
-        DontDestroyOnLoad(gameObject);
+        m_SceneHandle = Addressables.DownloadDependenciesAsync(assetLabel, Addressables.MergeMode.Intersection);
+
+        m_SceneHandle.Completed += OnSceneLoaded;
+
+        StartCoroutine(LoadingText());
     }
 
-    private void Start()
+    private void OnDisable()
     {
-        StartCoroutine(DownloadScene());
+        m_SceneHandle.Completed -= OnSceneLoaded;
     }
 
-   
-    IEnumerator DownloadScene()
-    {
-        var downloadScene = Addressables.LoadSceneAsync("Level_1", LoadSceneMode.Single);
-        downloadScene.Completed += SceneDownloadComplete;
-        Debug.Log("Starting download");
 
-       
-        while (!downloadScene.IsDone)
+    private void OnSceneLoaded(AsyncOperationHandle obj)
+    {
+        if (obj.Status == AsyncOperationStatus.Succeeded)
         {
-            var status = downloadScene.GetDownloadStatus();
-            progress = status.Percent;
-
-            m_LoadingSlider.value = progress;
-            text_Percent.text = (downloadScene.GetDownloadStatus().DownloadedBytes).ToString() + " / " + downloadScene.GetDownloadStatus().TotalBytes.ToString(); // "%" + ((int)(progress * 100)).ToString();
-            yield return null;
+            ManagerDownload.ListDownload.names += "Assets loaded" + " \n";
+            ManagerDownload.ListDownload.IsAssetDownloaded = true;
         }
-
-        text_Percent.text = "%" + (100).ToString();
-
-        Debug.Log("Complete download");
-
     }
 
-    public void Update()
+    public void GoToNextLevel()
     {
-        text_try.text = ManagerDownload.ListDownload.names;
-    }
-
-
-    private void SceneDownloadComplete(AsyncOperationHandle<SceneInstance> _handle)
-    {
-        if (_handle.Status == AsyncOperationStatus.Succeeded)
+        if(ManagerDownload.ListDownload.IsAdsLoaded && ManagerDownload.ListDownload.IsAssetDownloaded)
         {
-            uIGameObject.SetActive(false);
-            handle = _handle;
-            text_Percent.text = "Tamamlandý";
-            ManagerDownload.ListDownload.names += "Level loaded" + " \n";
-
+            Addressables.LoadSceneAsync("Level_1", LoadSceneMode.Single);
 
             Destroy(this.gameObject);
-            //   StartCoroutine(UnloadScene());
         }
     }
 
-  /*  private IEnumerator UnloadScene()
+    private void Update()
     {
-        yield return new WaitForSeconds(2);
-        Debug.Log("Unload Scene start");
-        Debug.Log(handle.Result.Scene.name);
-
-        Addressables.UnloadSceneAsync(handle, true).Completed += op =>
+        if (!ManagerDownload.ListDownload.IsAssetDownloaded)
         {
-            if (op.Status == AsyncOperationStatus.Succeeded)
+            m_LoadingSlider.value = m_SceneHandle.GetDownloadStatus().Percent;
+            text_Percent.text = (m_SceneHandle.GetDownloadStatus().DownloadedBytes / (1024  *1024)).ToString() + "mb"+ " / " + (m_SceneHandle.GetDownloadStatus().TotalBytes / (1024 * 1024)).ToString() + "mb";
+        }
+        
+
+        text_try.text = ManagerDownload.ListDownload.names;
+
+        if (ManagerDownload.ListDownload.IsAdsLoaded && ManagerDownload.ListDownload.IsAssetDownloaded)
+        {
+            m_LoadingSlider.value = 1;
+            button_Play.interactable = true;
+        }
+    }
+
+    IEnumerator LoadingText()
+    {
+        while(!ManagerDownload.ListDownload.IsAssetDownloaded)
+        {
+            text_Loading.text = "Loading";
+            if (!ManagerDownload.ListDownload.IsAssetDownloaded)
             {
-                uIGameObject.SetActive(true);
-                Debug.Log("Unload Scene");
+                yield return new WaitForSeconds(.5f);
             }
-        };
-    }*/
+            
+            text_Loading.text = "Loading.";
+            if (!ManagerDownload.ListDownload.IsAssetDownloaded)
+            {
+                yield return new WaitForSeconds(.5f);
+            }
+            text_Loading.text = "Loading..";
+            if (!ManagerDownload.ListDownload.IsAssetDownloaded)
+            {
+                yield return new WaitForSeconds(.5f);
+            }
+            text_Loading.text = "Loading...";
+            if (!ManagerDownload.ListDownload.IsAssetDownloaded)
+            {
+                yield return new WaitForSeconds(.5f);
+            }
+        }
+
+        text_Loading.text = "Play";
+    }
 }
 

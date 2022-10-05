@@ -39,7 +39,7 @@ namespace Case.Card
 
         void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
         {
-
+            CameraControl.Instance.ChangePerspective(0,0);
         }
 
         void IDragHandler.OnDrag(PointerEventData eventData)
@@ -82,6 +82,8 @@ namespace Case.Card
             {
                 BorderManager.Instance.BorderCondition(false);
             }
+
+            CameraControl.Instance.ChangePerspective((eventData.position.x - Screen.width / 2 ) / Screen.width, eventData.position.y / Screen.height);
         }
 
         void IEndDragHandler.OnEndDrag(PointerEventData eventData)
@@ -102,6 +104,7 @@ namespace Case.Card
             Destroy(_ghostCharacter);
             _cardImage.color = new Color32(255, 255, 255, 255);
             BorderManager.Instance.BorderCondition(false);
+            CameraControl.Instance.ChangePerspective(0, 0);
         }
 
         private Vector3 GetTouchPosition()
