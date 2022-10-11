@@ -35,11 +35,23 @@ public class CameraControl : MonoBehaviour
 
     }
 
+    public void ChangeTarget(Transform target)
+    {
+        if(!_isChanging)
+        {
+            StartCoroutine(Deneme(target));
+        }
+        
+    }
+
+
     public IEnumerator Deneme(Transform target)
     {
-        _realTransform.DOMove(target.position,1);
+        _isChanging = true;
+        _realTransform.DOMove(target.position * .8f,1);
          yield return new WaitForSeconds(1.75f);
         _realTransform.DOMove(_realTransformStartPos, 1);
+        _isChanging = false;
     }
 
 
@@ -49,8 +61,5 @@ public class CameraControl : MonoBehaviour
         _offsetObject.rotation = Quaternion.Euler(Vector3.forward * x * - _multipleZRot);
     }
 
-    public void ChangeTarget(Transform target)
-    {
-        StartCoroutine(Deneme(target));
-    }
+    
 }

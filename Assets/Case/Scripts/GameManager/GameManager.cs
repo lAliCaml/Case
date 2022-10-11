@@ -16,6 +16,13 @@ namespace Case.Managers
         void Start()
         {
             Instance = this;
+            Application.targetFrameRate = 60;
+        }
+
+        private void Update()
+        {
+            if (Time.frameCount % 3 == 0)
+                System.GC.Collect();
         }
 
         public void StartGame()

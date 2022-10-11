@@ -39,7 +39,5 @@ public class BannerAds : MonoBehaviour
     {
         ManagerDownload.ListDownload.names += "Ads loaded" + " \n";
         ManagerDownload.ListDownload.IsAdsLoaded = true;
-        Debug.Log("Reklam yüklendi");
-
     }
 }

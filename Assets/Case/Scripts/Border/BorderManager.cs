@@ -19,18 +19,16 @@ namespace Case.BorderControl
             Instance = this;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
 
         public void BorderCondition(bool probability)
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < _leftBorder.Length; i++)
             {
                 _leftBorder[i].SetActive(probability);
                 _rightBorder[i].SetActive(probability);
+
+                _leftBorder[0].SetActive(true);
+                _rightBorder[0].SetActive(true);
             }
 
             
@@ -42,7 +40,7 @@ namespace Case.BorderControl
 
             StartCoroutine(ChangeBorderSettings(name));
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < _leftBorder.Length; i++)
             {
                 _leftBorder[i].SetActive(true);
                 _rightBorder[i].SetActive(true);
@@ -74,10 +72,10 @@ namespace Case.BorderControl
         {
             yield return new WaitForSeconds(2);
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < _leftBorder.Length; i++)
             {
-                _leftBorder[i].SetActive(false);
-                _rightBorder[i].SetActive(false);
+                _leftBorder[1].SetActive(false);
+                _rightBorder[1].SetActive(false);
             }
         }
     }

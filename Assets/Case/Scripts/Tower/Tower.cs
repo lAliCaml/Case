@@ -127,6 +127,10 @@ namespace Case.Towers
 
             arrow.GetComponent<IThrow>().ThrowSettings(startingPos, target, _attack, name);
 
+            if(transform.CompareTag("Friend"))
+            {
+                CameraControl.Instance.ChangeTarget(transform);
+            }
         }
 
 
@@ -165,6 +169,7 @@ namespace Case.Towers
             if (_isMainTower)
             {
                 GameManager.Instance.FinishGame();
+                UIManager.Instance.ShowWinner(gameObject.tag);
             }
             else if (_isLeftTower)
             {

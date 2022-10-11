@@ -39,6 +39,12 @@ namespace Case.TimeControl
                 {
                     EnergyManager.Instance.EnergyRechargeRate = 2;
                 }
+                
+                if(_time <= 0)
+                {
+                    GameManager.Instance.FinishGame();
+                    UIManager.Instance.ShowWinner("Enemy");
+                }
                 yield return new WaitForSeconds(1);
             }
         }

@@ -9,10 +9,17 @@ namespace Case.Managers
     {
         public static UIManager Instance;
 
+       
+
         [Header("Panels")]
         [SerializeField] private GameObject panel_Menu;
         [SerializeField] private GameObject panel_Game;
         [SerializeField] private GameObject panel_End;
+        
+        [Header("Winner-Loser screen")]
+        [SerializeField] private Transform _textWinner;
+        [SerializeField] private Transform _purpleTeam;
+        [SerializeField] private Transform _blueTeam;
 
         void Start()
         {
@@ -51,6 +58,20 @@ namespace Case.Managers
         }
 
         #endregion
+
+        public void ShowWinner(string name)
+        {
+            if(name == "Friend")
+            {
+                _textWinner.parent = _purpleTeam;
+            }
+            else if(name == "Enemy")
+            {
+                _textWinner.parent = _blueTeam;
+            }
+            _textWinner.localPosition = Vector3.zero;
+            
+        }
     }
 
 }

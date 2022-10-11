@@ -52,11 +52,11 @@ namespace Case.Card
                 transform.position = Vector3.up * -1500;
 
                 //Ghost character
-                if (_ghostCharacter != null)
+                if (_ghostCharacter != null && IsGround())
                 {
                     _ghostCharacter.transform.position = GetTouchPosition();
                 }
-                else if(_ghostCharacter == null)
+                else if(_ghostCharacter == null && IsGround())
                 {
                     GameObject obj =  Instantiate(_characterProperties.Character.transform.GetChild(0).transform.gameObject, GetTouchPosition(), Quaternion.identity);
 
@@ -64,6 +64,10 @@ namespace Case.Card
                     mat.color = new Color32(255,255,255, 25);
 
                     _ghostCharacter = obj;
+                }
+                else
+                {
+                    Destroy(_ghostCharacter);
                 }
             }
             else

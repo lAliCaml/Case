@@ -202,11 +202,19 @@ namespace Case.Characters
 
         public void BeginToAttack(Transform target)
         {
-            _isAttack = true;
-            _agent.ResetPath();
+
+            if (_agent.enabled)
+            {
+                _agent.ResetPath();
+            }
             _agent.enabled = false;
+
+
+            _isAttack = true;
             _animControl.AttackMode();
             _attackTarget = target;
+
+            CameraControl.Instance.ChangeTarget(transform);
         }
 
         public void Rotate()
