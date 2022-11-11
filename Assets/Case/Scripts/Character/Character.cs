@@ -1,14 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Case.Health;
 using Case.Managers;
 using DG.Tweening;
+using Photon.Bolt;
 
 namespace Case.Characters
 {
-    public abstract class Character : MonoBehaviour, IHealty
+    public abstract class Character : EntityEventListener<ICharacterState>, IHealty
     {
         #region Variables
         [Header("CharacterFeatures")]
@@ -24,12 +24,12 @@ namespace Case.Characters
         [SerializeField] private AnimControl _animControl;
         [SerializeField] private HealtyBar _healtBar;
 
-        
+
         private int _currentHealth;
 
         private bool _isAttack;            //When character reach to the enemey
         private bool _haveTarget;         //Because run towards enemy
-        protected Transform _attackTarget; 
+        protected Transform _attackTarget;
 
 
 
@@ -48,30 +48,77 @@ namespace Case.Characters
 
             _currentHealth = _health;
 
+            if(entity.IsOwner)
+            {
+                state.Health = _currentHealth;
+            }
+         
+
             _agent.speed = _speed;
             _isAttack = false;
             _haveTarget = false;
 
-            StartCoroutine(RunSettings());
-            StartCoroutine(FindEnemy());
-
             //Scale
             transform.localScale = Vector3.zero;
             transform.DOScale(Vector3.one, .15f);
-
-            if(gameObject.CompareTag("Friend"))
-            {
-                CameraControl.Instance.ChangeTarget(transform);
-            }
         }
 
         public void Initialize(string tag)
         {
+            state.Tag = tag;
             gameObject.tag = tag;
+
+            if (tag == "Enemy")
+            {
+                transform.rotation = Quaternion.Euler(Vector3.up * 180);
+            }
+
+
+            CameraControl.Instance.ChangeTarget(transform);
+
+            if (entity.IsOwner)
+            {
+                StartCoroutine(RunSettings());
+                StartCoroutine(FindEnemy());
+            }
 
         }
         #endregion
 
+
+        #region Server
+        public override void Attached()
+        {
+            state.SetTransforms(state.Transform, transform);
+
+            state.AddCallback("Tag", TagCallBack);
+            state.AddCallback("Health", HealthCallBack);
+        }
+
+        public override void OnEvent(HitEvent evnt) => GetDamage(evnt.Attack);
+
+        private void HealthCallBack()
+        {
+            _currentHealth = state.Health;
+
+            if (_currentHealth > 0)
+            {
+                float healthRate = (float)state.Health / (float)_health;
+                _healtBar.HealthBarShow(healthRate);
+            }
+            else
+            {
+                BoltNetwork.Destroy(gameObject);
+            }
+        }
+
+        private void TagCallBack()
+        {
+            gameObject.tag = state.Tag;
+            _healtBar.Initialize();
+        }
+
+        #endregion
 
 
         #region Run
@@ -81,17 +128,17 @@ namespace Case.Characters
          */
         IEnumerator RunSettings()
         {
-            while(GameManager.Instance.isContinue)
+            while (GameManager.Instance.isContinue)
             {
                 if (!_isAttack && !_haveTarget)
                 {
                     if (gameObject.CompareTag("Friend"))
                     {
                         _agent.enabled = true;
-                        _agent.SetDestination( transform.position + Vector3.forward * 25 - Vector3.up * transform.position.y);
+                        _agent.SetDestination(transform.position + Vector3.forward * 25 - Vector3.up * transform.position.y);
                         _animControl.RunMode();
                     }
-                    else if(gameObject.CompareTag("Enemy"))
+                    else if (gameObject.CompareTag("Enemy"))
                     {
                         _agent.enabled = true;
                         _agent.SetDestination(transform.position - Vector3.forward * 25 - Vector3.up * transform.position.y);
@@ -101,11 +148,11 @@ namespace Case.Characters
                 yield return new WaitForSeconds(.25f);
             }
 
-            if(_agent.isActiveAndEnabled)
+            if (_agent.isActiveAndEnabled)
             {
                 _agent.ResetPath();
             }
-            
+
             _animControl.IdleMode();
         }
 
@@ -131,7 +178,7 @@ namespace Case.Characters
                 {
                     ScanningEnemy();
                 }
-              
+
                 yield return new WaitForSeconds(.25f);
             }
         }
@@ -176,7 +223,7 @@ namespace Case.Characters
             {
                 BeginToAttack(nearestEnemy.transform);
             }
-            else if (nearestEnemy != null && Vector3.Distance(nearestEnemy.transform.position, transform.position) >= _attackRange )
+            else if (nearestEnemy != null && Vector3.Distance(nearestEnemy.transform.position, transform.position) >= _attackRange)
             {
                 _haveTarget = true;
                 RunToTheTarget(nearestEnemy.transform);
@@ -188,11 +235,11 @@ namespace Case.Characters
 
         }
 
-       /* private void OnDrawGizmos() 
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(transform.position + _scanOffset, _scanArea);
-        }*/
+        /* private void OnDrawGizmos() 
+         {
+             Gizmos.color = Color.red;
+             Gizmos.DrawWireCube(transform.position + _scanOffset, _scanArea);
+         }*/
 
         #endregion
 
@@ -219,7 +266,7 @@ namespace Case.Characters
 
         public void Rotate()
         {
-            if(_attackTarget!= null)
+            if (_attackTarget != null)
             {
                 Quaternion targetRotate = Quaternion.LookRotation(Vector3.right * (_attackTarget.position.x - transform.position.x) + Vector3.forward * (_attackTarget.position.z - transform.position.z));
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotate, Time.deltaTime * 200);
@@ -233,11 +280,14 @@ namespace Case.Characters
          */
         public virtual void Attack()
         {
-            _agent.enabled = true;
-            _isAttack = false;
-            _haveTarget = false;
+            if (entity.IsOwner)
+            {
+                _agent.enabled = true;
+                _isAttack = false;
+                _haveTarget = false;
 
-            StartCoroutine(FindEnemy());
+                StartCoroutine(FindEnemy());
+            }
         }
 
         #endregion
@@ -248,25 +298,12 @@ namespace Case.Characters
         #region Get Damage
         public void GetDamage(int damage)
         {
-            _currentHealth -= damage;
-
-
-            if (_currentHealth > 0)
+            if (entity.IsOwner)
             {
-                float healthRate = (float)_currentHealth / (float)_health;
-                _healtBar.HealthBarShow(healthRate);
+                state.Health -= damage;
             }
-            else
-            {
-                Death();
-            }
+           
         }
-
-        public void Death()
-        {
-            Destroy(gameObject);
-        }
-
         #endregion
     }
 

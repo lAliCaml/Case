@@ -15,4 +15,19 @@ MonoBehaviour:
   DatabaseMode: 0
   Prefabs:
   - {fileID: 0}
+  - {fileID: 160018, guid: 43cc1a347ac43cd498e91db9fb766337, type: 3}
+  - {fileID: 8686244998126542905, guid: 923ff3b81bd21fd4d830ce369f7ef0c1, type: 3}
+  - {fileID: 8211501754676731081, guid: 306cdbdbbd26c0444a339a73f7276df2, type: 3}
+  - {fileID: 9071575690284845348, guid: 965bc9e8fdaa5cc4881acb405b86f174, type: 3}
+  - {fileID: 7181943413142729025, guid: 2b24e331066b0cc439f50f90f8241491, type: 3}
+  - {fileID: 7044264452260456712, guid: 431786bf14c64284d8f0c5330726b35a, type: 3}
+  - {fileID: 1471667099707512523, guid: 404ea5d0b2d7fdb4db960e22c5e6ec65, type: 3}
+  - {fileID: 8806265539541873006, guid: 82435e10a8a24df4e9ff80a65cb8a3af, type: 3}
+  - {fileID: 6713222023146299732, guid: 19b539a0900b21143b392f6fd6124f7e, type: 3}
+  - {fileID: 2436207830331206081, guid: 75f1dd990e350d94eb6d3b745cc90df3, type: 3}
+  - {fileID: 7500337230353591335, guid: dee1cc9d459bfab4fba301107261c1a4, type: 3}
+  - {fileID: 1406075818967819796, guid: 9412818087760f64e9e41c7dbcb0b71c, type: 3}
+  - {fileID: 1122861990795448166, guid: aefbe2ceb6e916145a58bf8ceeff7021, type: 3}
+  - {fileID: 2524690029086290412, guid: c68cfa03e5cd5314d9fd6ef78cd62644, type: 3}
+  - {fileID: 953985778286472347, guid: 20e22c901b14b45458034d728252f3ed, type: 3}
   SearchPaths: []

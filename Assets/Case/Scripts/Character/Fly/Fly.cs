@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Case.Throw;
+using Photon.Bolt;
 
 
 namespace Case.Characters
 {
     public class Fly : Character
     {
-        [SerializeField] private GameObject _dragonBall;
 
         public override void Start()
         {
@@ -20,11 +20,11 @@ namespace Case.Characters
         
         public override void Attack()
         {
-            if (_attackTarget != null)
+            if (_attackTarget != null && entity.IsOwner)
             {
                 Vector3 startingPos = transform.position  + Vector3.forward * 3 + Vector3.up * 3;
 
-                GameObject arrow = Instantiate(_dragonBall, startingPos, Quaternion.identity);
+                GameObject arrow = BoltNetwork.Instantiate(BoltPrefabs.DragonBall, startingPos, Quaternion.identity);
 
                 string name = gameObject.tag;
 

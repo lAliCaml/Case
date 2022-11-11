@@ -4,6 +4,7 @@ using UnityEngine;
 using Case.Characters;
 using UnityEngine.UI;
 using DG.Tweening;
+using Case.Managers;
 
 namespace Case.Health
 {
@@ -17,7 +18,7 @@ namespace Case.Health
         [SerializeField] private Image _healthImage;
         [SerializeField] private Transform _canvas;
 
-        private void Start()
+        public void Initialize()
         {
             if (gameObject.CompareTag("Friend"))
             {
@@ -27,12 +28,18 @@ namespace Case.Health
             {
                 _healthImage.color = Color.magenta;
             }
+            _canvas.transform.DORotate(Vector3.right * 60, .1f);// = Quaternion.Euler(Vector3.right * 60); //DOLocalRotate(Vector3.right * 60, 1);
+            _canvas.LookAt(Camera.main.transform.position + Vector3.up * 1000);
         }
 
         public void Update()
         {
-            _canvas.transform.DORotate(Vector3.right * 60, .1f);// = Quaternion.Euler(Vector3.right * 60); //DOLocalRotate(Vector3.right * 60, 1);
-          //  _canvas.LookAt(Camera.main.transform.position + Vector3.up * 1000);
+            if(GameManager.Instance.isContinue)
+            {
+                _canvas.transform.DORotate(Vector3.right * 60, .1f);// = Quaternion.Euler(Vector3.right * 60); //DOLocalRotate(Vector3.right * 60, 1);
+                _canvas.LookAt(Camera.main.transform.position + Vector3.up * 1000);
+            }
+            
         }
 
         public void HealthBarShow(float rate)

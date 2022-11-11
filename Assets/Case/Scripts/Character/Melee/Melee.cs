@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Case.Health;
+using Photon.Bolt;
 
 namespace Case.Characters
 {
@@ -10,9 +11,13 @@ namespace Case.Characters
 
         public override void Attack()
         {
-            if (_attackTarget != null)
+            if (_attackTarget != null && entity.IsOwner)
             {
-                _attackTarget.GetComponent<IHealty>().GetDamage(_attack);
+                BoltEntity entity = _attackTarget.gameObject.GetComponent<BoltEntity>();
+
+                var evnt = HitEvent.Create(entity);
+                evnt.Attack = _attack;
+                evnt.Send();
             }
             base.Attack();
         }

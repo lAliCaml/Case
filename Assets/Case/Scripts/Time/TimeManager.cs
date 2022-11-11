@@ -5,10 +5,11 @@ using UnityEngine.UI;
 using Case.Energy;
 using Case.Managers;
 using Case.Energy;
+using Photon.Bolt;
 
 namespace Case.TimeControl
 {
-    public class TimeManager : MonoBehaviour
+    public class TimeManager : GlobalEventListener
     {
         [SerializeField] private Text text_Time;
         [SerializeField] private int _time;
@@ -17,11 +18,11 @@ namespace Case.TimeControl
 
         void Start()
         {
-            GameManager.Instance.OnStartGame += HandleStartGame;
             _totalTime = _time;
         }
 
-        private void HandleStartGame()
+
+        public override void OnEvent(HandleBegin evnt)
         {
             StartCoroutine(Timer());
         }
@@ -42,8 +43,9 @@ namespace Case.TimeControl
                 
                 if(_time <= 0)
                 {
-                    GameManager.Instance.FinishGame();
-                    UIManager.Instance.ShowWinner("Enemy");
+                    var evnt = FinishGame.Create();
+                    evnt.Name = "Friend";
+                    evnt.Send();
                 }
                 yield return new WaitForSeconds(1);
             }

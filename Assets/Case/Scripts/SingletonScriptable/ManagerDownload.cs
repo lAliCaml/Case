@@ -6,6 +6,7 @@ using UnityEngine;
 public class ManagerDownload : SingletonScriptableObject<ManagerDownload>
 {
     [SerializeField] private ListDownload _listDownload;
+
     public static ListDownload ListDownload
     {
         get
@@ -17,7 +18,6 @@ public class ManagerDownload : SingletonScriptableObject<ManagerDownload>
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterAssembliesLoaded)]
     private static void FirstInitialize()
     {
-        ListDownload.names = "";
         ListDownload.IsAdsLoaded = false;
         ListDownload.IsAssetDownloaded = false;
     }

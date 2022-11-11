@@ -1,28 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Bolt;
 
 namespace Case.Characters
 {
-    public class AnimControl : MonoBehaviour
+    public class AnimControl : EntityBehaviour<ICharacterState>
     {
-        [SerializeField] private Animator _anim;
+        public Animator _anim; //Because of character is using animator for equalize anim
+
+        public override void Attached()
+        {
+            state.SetAnimator(_anim);
+
+            state.AddCallback("RunP", () =>
+            {
+                state.Animator.SetBool("RunP", state.RunP);
+            });
+
+            state.AddCallback("AttackP", () =>
+            {
+                state.Animator.SetTrigger("AttackP");
+            });
+        }
 
         public void IdleMode()
         {
-            _anim.SetBool("RunP", false);
+            state.RunP = false;
+         //   state.Animator.SetBool("RunP", false);
         }
 
         public void RunMode()
         {
-            _anim.ResetTrigger("AttackP");
-            _anim.SetBool("RunP", true);
+            state.RunP = true;
+
+         //   state.Animator.ResetTrigger("AttackP");
+           // state.Animator.SetBool("RunP", true);
         }
 
         public void AttackMode()
         {
-            _anim.SetBool("RunP", false);
-            _anim.SetTrigger("AttackP");
+            state.RunP = false;
+            state.AttackP++;
+
+            //state.Animator.SetBool("RunP", false);
+            //state.Animator.SetTrigger("AttackP");
         }
     }
 

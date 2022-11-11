@@ -1,0 +1,66 @@
+Bolt Free Debug v1.3.2 starting with a simulation rate of 60 on platform WindowsPlayer
+[STUN] Reset configs
+Reusing UdpKit Task with ID: 5
+Creating Global Behaviour: 'Photon.Bolt.Utils.BoltConsole'
+Creating Global Behaviour: 'Photon.Bolt.Utils.BoltPhysicsDebug'
+Creating Global Behaviour: 'Photon.Bolt.Internal.BoltPoll'
+Creating Global Behaviour: 'Photon.Bolt.Internal.BoltSend'
+Creating Global Behaviour: 'Photon.Bolt.SceneManagement.BoltSceneLoader'
+Creating Global Behaviour: 'Photon.Bolt.PhotonCloudGlobalBehavior+PhotonBoltBehavior'
+Creating Global Behaviour: 'Photon.Bolt.PhotonCloudGlobalBehavior'
+Registered token class Photon.Bolt.Tokens.BoltDisconnectToken as id 1
+Registered token class Photon.Bolt.PhotonRoomProperties as id 2
+BoltProtocolTokenRegistry not found, system disabled.
+Binding physical socket using platform 'UdpKit.Platform.PhotonPlatform' with IP [EndPoint IPv4 0.0.0.0:0]
+Physical socket bound to 0.0.0.0:59664
+LAN endpoint resolved as [EndPoint IPv4 192.168.8.107:59664]
+[PhotonPoller] Starting LBC with Protocol: Udp
+Starting Realtime background handler (0)
+[PhotonPoller] Running background connection with Region Master
+[PhotonPoller] Starting timeout watcher: 20
+[STUN] Requesting Info to server [EndPoint IPv4 108.177.119.127:19302]
+[STUN] Request Success: [EndPoint IPv4 31.141.36.242:30929]
+Region List Received
+Available Regions
+eu[92.38.154.103:5055]: 65ms
+us[91.199.81.131:5055]: 193ms
+usw[91.199.81.130:5055]: 259ms
+cae[172.65.244.245:5055]: 196ms
+asia[216.120.180.25:5055]: 264ms
+jp[20.89.104.232:5055]: 274ms
+au[216.120.180.4:5055]: 398ms
+sa[5.188.239.8:5055]: 269ms
+in[216.120.180.87:5055]: 268ms
+ru[5.188.170.6:5055]: 103ms
+rue[91.199.81.125:5055]: 243ms
+kr[20.196.192.33:5055]: 275ms
+za[91.199.81.223:5055]: 305ms
+tr[92.38.181.70:5055]: 65ms
+Connecting to Region Master eu
+Received your UserID from server. Updating local value to: f5cb95a2-35f0-4508-b8a8-73c77dba93bf
+[PhotonPoller] Initialization callback: True
+[PhotonPoller] Cancel Startup timeout routine
+Joined to Lobby 
+Found 0 Scene Objects
+Changing Connect State: Idle => CreateRoomPending
+Creating new room: 61
+Starting Room Create Timer with 20s
+Create Room: 61
+Changing Connect State: CreateRoomPending => Connected
+Joined to room: 61
+Caching Original Master Client: 1
+Scene Level_1 enqueued to load
+Loading Level_1 (1)
+Attached [Entity [NetworkId 0-0-0-1-0-0-0-1] Photon.Bolt.Tower] (Token: NULL)
+Attached [Entity [NetworkId 0-0-0-2-0-0-0-1] Photon.Bolt.Tower] (Token: NULL)
+Attached [Entity [NetworkId 0-0-0-3-0-0-0-1] Photon.Bolt.Tower] (Token: NULL)
+Found 0 Scene Objects
+Done loading Level_1
+Stopping UdpKit Task 5
+Stopping Photon Bolt Immediate
+Detached [Entity [NetworkId 0-0-0-1-0-0-0-1] Photon.Bolt.Tower]
+Detached [Entity [NetworkId 0-0-0-2-0-0-0-1] Photon.Bolt.Tower]
+Detached [Entity [NetworkId 0-0-0-3-0-0-0-1] Photon.Bolt.Tower]
+Stopping Realtime background handler (0)
+Realtime background handler stopped.
+Behaviour not available in this dispatcher, ignoring call to Remove.

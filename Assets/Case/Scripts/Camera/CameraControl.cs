@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using DG.Tweening;
+using Photon.Bolt;
 
 public class CameraControl : MonoBehaviour
 {
     public static CameraControl Instance;
 
-    
+
     [SerializeField] private Transform _offsetObject;
 
 
@@ -17,39 +18,55 @@ public class CameraControl : MonoBehaviour
 
     [SerializeField] private float _multipleZRot;
 
-    private Vector3 _virtualCamStartPos;
-    [SerializeField] private Transform _virtualCamPos;
 
-    public CinemachineVirtualCamera cam;
     [SerializeField] private Transform _realTransform;
     private Vector3 _realTransformStartPos;
 
     private bool _isChanging;
 
+    [SerializeField] private GameObject _camServer;
+    [SerializeField] private GameObject _camClient;
+
+
 
     void Start()
     {
+
         Instance = this;
-        _virtualCamStartPos = _virtualCamPos.position;
+
+        if(BoltNetwork.IsServer)
+        {
+            _camServer.SetActive(true);
+            _camClient.SetActive(false);
+        }
+        else if(BoltNetwork.IsClient)
+        {
+            _camServer.SetActive(false);
+            _camClient.SetActive(true);
+        }
+
+
+
+
         _realTransformStartPos = _realTransform.position;
 
     }
 
     public void ChangeTarget(Transform target)
     {
-        if(!_isChanging)
+        if (!_isChanging)
         {
             StartCoroutine(Deneme(target));
         }
-        
+
     }
 
 
     public IEnumerator Deneme(Transform target)
     {
         _isChanging = true;
-        _realTransform.DOMove(target.position * .8f,1);
-         yield return new WaitForSeconds(1.75f);
+        _realTransform.DOMove(target.position * .5f, 1);
+        yield return new WaitForSeconds(1.75f);
         _realTransform.DOMove(_realTransformStartPos, 1);
         _isChanging = false;
     }
@@ -58,8 +75,8 @@ public class CameraControl : MonoBehaviour
     public void ChangePerspective(float x, float y)
     {
         _offsetObject.position = Vector3.right * x * _multipleXPos + Vector3.forward * y * _multipleZPos;
-        _offsetObject.rotation = Quaternion.Euler(Vector3.forward * x * - _multipleZRot);
+        _offsetObject.rotation = Quaternion.Euler(Vector3.forward * x * -_multipleZRot);
     }
 
-    
+
 }

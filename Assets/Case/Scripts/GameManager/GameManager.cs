@@ -1,37 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Photon.Bolt;
 
 namespace Case.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : GlobalEventListener
     {
         public static GameManager Instance;
 
         public bool isContinue;
 
-        public System.Action OnStartGame;
-        public System.Action OnFinishGame;
+        public Action OnFinishGame;
 
         void Start()
         {
-            Instance = this;
-            Application.targetFrameRate = 60;
+            if(Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+
+            if(BoltNetwork.IsClient)
+            {
+                var evnt = HandleBegin.Create();
+                evnt.Send();
+            }
         }
 
-        private void Update()
-        {
-            if (Time.frameCount % 3 == 0)
-                System.GC.Collect();
-        }
 
-        public void StartGame()
+        public override void OnEvent(HandleBegin evnt)
         {
             isContinue = true;
-            OnStartGame?.Invoke();
         }
 
-        public void FinishGame()
+
+
+        public override void OnEvent(FinishGame evnt)
         {
             OnFinishGame?.Invoke();
             isContinue = false;

@@ -6,11 +6,12 @@ using Case.Health;
 using Case.Managers;
 using Case.BorderControl;
 using DG.Tweening;
+using Photon.Bolt;
 
 
 namespace Case.Towers
 {
-    public class Tower : MonoBehaviour, IHealty
+    public class Tower : EntityEventListener<ITower>, IHealty
     {
         #region Variables
         [Header("CharacterFeatures")]
@@ -22,14 +23,12 @@ namespace Case.Towers
         [SerializeField] private HealtyBar _healtBar;
 
         [Header("HitEffect")]
-        [SerializeField] private ParticleSystem _hitEffect;
         [SerializeField] private ParticleSystem _deathEffect;
 
 
 
         [SerializeField] private TowerProperties _towerProperties; //ScriptableObject
 
-        private int _currentHealth;
         private bool _isPunchScale;
 
         [SerializeField] private bool _isMainTower;
@@ -39,7 +38,7 @@ namespace Case.Towers
 
         [SerializeField] private GameObject Arrow;
 
-        
+
 
         #endregion
 
@@ -51,13 +50,49 @@ namespace Case.Towers
             _attack = _towerProperties.Attack;
             _scanArea = _towerProperties.ScanArea;
 
-            _currentHealth = _health;
+            if (entity.IsOwner)
+            {
+                state.Health = _health;
+            }
+           
 
-            StartCoroutine(FindEnemy());
+
+            if (entity.IsOwner)
+            {
+                StartCoroutine(FindEnemy());
+            }
         }
 
         #endregion
 
+        #region Server
+
+        public override void Attached()
+        {
+            state.AddCallback("Health", HealthCallBack);
+        }
+
+        public override void OnEvent(HitEvent evnt) => GetDamage(evnt.Attack);
+
+        private void HealthCallBack()
+        {
+            if (state.Health > 0)
+            {
+                float healthRate = (float)state.Health / (float)_health;
+                _healtBar.HealthBarShow(healthRate);
+
+                StartCoroutine(PunchScale());
+            }
+            else
+            {
+                Death();
+            }
+
+            Camera.main.DOShakePosition(0.1f, Vector3.one * .075f, 0, 0f, false);
+        }
+
+
+        #endregion
 
 
         #region FindEnemy
@@ -74,7 +109,7 @@ namespace Case.Towers
         private void ScanningEnemy()
         {
             Collider[] hitColliders = Physics.OverlapBox(transform.position, _scanArea);
-       
+
 
             GameObject nearestEnemy = null;
             float scanArea = 35;
@@ -106,11 +141,11 @@ namespace Case.Towers
 
         }
 
-      /* private void OnDrawGizmos() 
-       {
-           Gizmos.color = Color.red;
-           Gizmos.DrawWireCube(transform.position, _towerProperties.ScanArea);
-       }*/
+        /* private void OnDrawGizmos() 
+         {
+             Gizmos.color = Color.red;
+             Gizmos.DrawWireCube(transform.position, _towerProperties.ScanArea);
+         }*/
 
 
         #endregion
@@ -121,13 +156,13 @@ namespace Case.Towers
         {
             Vector3 startingPos = transform.position + Vector3.up * 3;
 
-            GameObject arrow = Instantiate(Arrow, transform.position, Quaternion.identity);
+            GameObject arrow = BoltNetwork.Instantiate(BoltPrefabs.Arrow, transform.position, Quaternion.identity);
 
             string name = gameObject.tag;
 
             arrow.GetComponent<IThrow>().ThrowSettings(startingPos, target, _attack, name);
 
-            if(transform.CompareTag("Friend"))
+            if (transform.CompareTag("Friend"))
             {
                 CameraControl.Instance.ChangeTarget(transform);
             }
@@ -144,45 +179,47 @@ namespace Case.Towers
 
         public void GetDamage(int damage)
         {
-            _currentHealth -= damage;
-            Instantiate(_hitEffect, transform.position, Quaternion.identity);
-
-            if (_currentHealth > 0)
+            if(entity.IsOwner)
             {
-                float healthRate = (float)_currentHealth / (float)_health;
-                _healtBar.HealthBarShow(healthRate);
-
-                StartCoroutine(PunchScale());
+                state.Health -= damage;
             }
-            else
-            {
-                Death();
-            }
-
-            Camera.main.DOShakePosition(0.1f, Vector3.one * .075f, 0, 0f, false);
+           
+            BoltNetwork.Instantiate(BoltPrefabs.HitEffect, transform.position, Quaternion.identity);
         }
 
         public void Death()
         {
-            Instantiate(_deathEffect, transform.position, Quaternion.identity);
+            BoltNetwork.Instantiate(BoltPrefabs.DeathEffect, transform.position, Quaternion.identity);  //Instantiate(_deathEffect, transform.position, Quaternion.identity);
 
             if (_isMainTower)
             {
-                GameManager.Instance.FinishGame();
-                UIManager.Instance.ShowWinner(gameObject.tag);
+                var evnt = FinishGame.Create();
+                evnt.Name = gameObject.tag;
+                evnt.Send();
             }
             else if (_isLeftTower)
             {
-                BorderManager.Instance.ChangeBorder("Left");
+                if (BoltNetwork.IsServer && gameObject.CompareTag("Enemy"))
+                {
+                    BorderManager.Instance.ChangeBorder("Left");
+                }
+                else if (BoltNetwork.IsClient && gameObject.CompareTag("Friend"))
+                {
+                    BorderManager.Instance.ChangeBorder("Left");
+                }
             }
             else if (_isRightTower)
             {
-                BorderManager.Instance.ChangeBorder("Right");
+                if (BoltNetwork.IsServer && gameObject.CompareTag("Enemy"))
+                {
+                    BorderManager.Instance.ChangeBorder("Right");
+                }
+                else if (BoltNetwork.IsClient && gameObject.CompareTag("Friend"))
+                {
+                    BorderManager.Instance.ChangeBorder("Right");
+                }
             }
-
-
-
-            Destroy(gameObject);
+            BoltNetwork.Destroy(gameObject);
         }
 
         IEnumerator PunchScale()

@@ -37,7 +37,6 @@ public class BannerAds : MonoBehaviour
 
     private void HandleOnAdLoaded(object sender, EventArgs e)
     {
-        ManagerDownload.ListDownload.names += "Ads loaded" + " \n";
         ManagerDownload.ListDownload.IsAdsLoaded = true;
     }
 }

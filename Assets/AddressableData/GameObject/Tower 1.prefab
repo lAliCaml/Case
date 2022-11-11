@@ -29,6 +29,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8573503147623816577}
   m_Father: {fileID: 1498834341448385506}
@@ -128,6 +129,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3008859472639341444}
   m_Father: {fileID: 5130369735471378638}
@@ -204,6 +206,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8573503147623816577}
   m_RootOrder: 0
@@ -279,6 +282,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.81, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1498834341448385506}
   m_RootOrder: 0
@@ -302,6 +306,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -344,6 +349,7 @@ GameObject:
   - component: {fileID: 2273005177421514702}
   - component: {fileID: 906557167}
   - component: {fileID: 906557170}
+  - component: {fileID: 1253869958982222132}
   m_Layer: 2
   m_Name: Tower 1
   m_TagString: Untagged
@@ -361,6 +367,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -3.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5880380680321883652}
   - {fileID: 5130369735471378638}
@@ -380,7 +387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healtBar: {fileID: 906557170}
-  _hitEffect: {fileID: 8686244998111672139, guid: 923ff3b81bd21fd4d830ce369f7ef0c1, type: 3}
   _deathEffect: {fileID: 19883616, guid: 43cc1a347ac43cd498e91db9fb766337, type: 3}
   _towerProperties: {fileID: 11400000, guid: af6feaf9852a3c044a1f5e69e77f049e, type: 2}
   _isMainTower: 1
@@ -415,3 +421,32 @@ MonoBehaviour:
   _offset: {x: 0, y: 0, z: 0}
   _healthImage: {fileID: 7154493437920764574}
   _canvas: {fileID: 5130369735471378638}
+--- !u!114 &1253869958982222132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713222023146299732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 155943207, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneGuid: 
+  _serializerGuid: f34f9f68-6830-49ee-8dd4-902c26eb7983
+  _prefabId: 9
+  _updateRate: 1
+  _autoFreezeProxyFrames: 0
+  _clientPredicted: 1
+  _allowInstantiateOnClient: 1
+  _persistThroughSceneLoads: 0
+  _sceneObjectDestroyOnDetach: 1
+  _sceneObjectAutoAttach: 1
+  _alwaysProxy: 0
+  _detachOnDisable: 1
+  _allowFirstReplicationWhenFrozen: 0
+  _autoRemoveChildEntities: 0
+  _entityBehaviourQueryOption: 0
+  _entityPriorityCalculatorQueryOption: 1
+  _entityReplicationFilterQueryOption: 1

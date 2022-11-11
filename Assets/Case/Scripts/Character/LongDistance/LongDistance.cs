@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Case.Throw;
+using Photon.Bolt;
 
 namespace Case.Characters
 {
     public class LongDistance : Character
     {
-        [SerializeField] private GameObject _arrow;
         public override void Attack()
         {
-            if (_attackTarget != null)
+            if (_attackTarget != null && entity.IsOwner)
             {
 
                 Vector3 startingPos = transform.position + Vector3.up * 3;
 
-                GameObject arrow = Instantiate(_arrow, startingPos, Quaternion.identity);
+                GameObject arrow = BoltNetwork.Instantiate(BoltPrefabs.Arrow, startingPos, Quaternion.identity);
 
                 string name = gameObject.tag;
 

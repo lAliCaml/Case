@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Photon.Bolt;
 
 namespace Case.BorderControl
 {
@@ -9,7 +10,7 @@ namespace Case.BorderControl
     {
         public static BorderManager Instance;
 
-        [SerializeField] private GameObject[] _leftBorder;
+        [SerializeField] private GameObject[] _leftBorder;//0 is red area for the server 
         [SerializeField] private GameObject[] _rightBorder;
 
         private Transform[] transformChange;
@@ -17,6 +18,15 @@ namespace Case.BorderControl
         void Start()
         {
             Instance = this;
+
+            for (int i = 0; i < _leftBorder.Length; i++)
+            {
+                if (BoltNetwork.IsClient)
+                {
+                    _leftBorder[i].transform.position += Vector3.forward * _leftBorder[i].transform.position.z * -2; 
+                    _rightBorder[i].transform.position += Vector3.forward * _rightBorder[i].transform.position.z * -2;
+                }
+            }
         }
 
 
@@ -29,9 +39,7 @@ namespace Case.BorderControl
 
                 _leftBorder[0].SetActive(true);
                 _rightBorder[0].SetActive(true);
-            }
-
-            
+            } 
         }
 
        
@@ -61,11 +69,22 @@ namespace Case.BorderControl
                 transformChange[1] = _rightBorder[1].transform;
             }
 
-            transformChange[0].DOScaleZ(20, 1);
-            transformChange[0].DOMoveZ(25, 1);
+            if(BoltNetwork.IsServer)
+            {
+                 transformChange[0].DOScaleZ(20, 1);
+                 transformChange[0].DOMoveZ(25, 1);
 
-            transformChange[1].DOScaleZ(48, 1);
-            transformChange[1].DOMoveZ(-11, 1);
+                 transformChange[1].DOScaleZ(48, 1);
+                 transformChange[1].DOMoveZ(-11, 1);
+            }
+            else if (BoltNetwork.IsClient)
+            {
+                transformChange[0].DOScaleZ(20, 1);
+                transformChange[0].DOMoveZ(-25, 1);
+
+                transformChange[1].DOScaleZ(48, 1);
+                transformChange[1].DOMoveZ(11, 1);
+            }
         }
 
         IEnumerator ChangeBorderSettings(string name)

@@ -2,20 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Bolt;
+using System;
+using Photon.Bolt.Matchmaking;
+using Photon.Bolt.Tokens;
+using Photon.Bolt.Utils;
 
 namespace Case.Managers
 {
-    public class UIManager : MonoBehaviour
+    public class UIManager : GlobalEventListener
     {
         public static UIManager Instance;
 
-       
 
         [Header("Panels")]
-        [SerializeField] private GameObject panel_Menu;
         [SerializeField] private GameObject panel_Game;
         [SerializeField] private GameObject panel_End;
-        
+
         [Header("Winner-Loser screen")]
         [SerializeField] private Transform _textWinner;
         [SerializeField] private Transform _purpleTeam;
@@ -25,53 +28,53 @@ namespace Case.Managers
         {
             Instance = this;
 
-            GameManager.Instance.OnStartGame += HandleStartGame;
             GameManager.Instance.OnFinishGame += HandleFinishGame;
         }
 
 
-        private void HandleStartGame()
-        {
-            panel_Menu.SetActive(false);
-            panel_Game.SetActive(true);
-            panel_End.SetActive(false);
-        }
-
 
         private void HandleFinishGame()
         {
-            panel_Menu.SetActive(false);
+            BoltNetwork.Shutdown();
+            BoltLauncher.Shutdown();
             panel_Game.SetActive(false);
             panel_End.SetActive(true);
         }
 
         #region Buttons
-        public void StartButton()
-        {
-            GameManager.Instance.StartGame();
-
-        }
 
         public void PlayAgain()
         {
+            if(BoltNetwork.IsServer)
+            {
+                BoltNetwork.UpdateSessionList(BoltNetwork.SessionList);
+            }
             SceneManager.LoadScene(0);
         }
 
+
+
         #endregion
 
-        public void ShowWinner(string name)
+        public override void OnEvent(FinishGame evnt)
         {
-            if(name == "Friend")
-            {
-                _textWinner.parent = _purpleTeam;
-            }
-            else if(name == "Enemy")
+            if (evnt.Name == "Enemy")
             {
                 _textWinner.parent = _blueTeam;
             }
+            else if (evnt.Name == "Friend")
+            {
+                _textWinner.parent = _purpleTeam;
+            }
             _textWinner.localPosition = Vector3.zero;
-            
         }
+
+        public override void OnEvent(HandleBegin evnt)
+        {
+            panel_Game.SetActive(true);
+            panel_End.SetActive(false);
+        }
+
     }
 
 }

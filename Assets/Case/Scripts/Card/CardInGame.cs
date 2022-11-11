@@ -6,6 +6,7 @@ using Case.Characters;
 using Case.Energy;
 using Case.BorderControl;
 using UnityEngine.UI;
+using Photon.Bolt;
 
 namespace Case.Card
 {
@@ -39,7 +40,7 @@ namespace Case.Card
 
         void IBeginDragHandler.OnBeginDrag(PointerEventData eventData)
         {
-            CameraControl.Instance.ChangePerspective(0,0);
+            CameraControl.Instance.ChangePerspective(0, 0);
         }
 
         void IDragHandler.OnDrag(PointerEventData eventData)
@@ -56,12 +57,12 @@ namespace Case.Card
                 {
                     _ghostCharacter.transform.position = GetTouchPosition();
                 }
-                else if(_ghostCharacter == null && IsGround())
+                else if (_ghostCharacter == null && IsGround())
                 {
-                    GameObject obj =  Instantiate(_characterProperties.Character.transform.GetChild(0).transform.gameObject, GetTouchPosition(), Quaternion.identity);
+                    GameObject obj = Instantiate(_characterProperties.Character.transform.GetChild(0).transform.gameObject, GetTouchPosition(), Quaternion.identity);
 
                     Material mat = obj.GetComponentInChildren<SkinnedMeshRenderer>().material;
-                    mat.color = new Color32(255,255,255, 25);
+                    mat.color = new Color32(255, 255, 255, 25);
 
                     _ghostCharacter = obj;
                 }
@@ -78,7 +79,7 @@ namespace Case.Card
             }
 
 
-            if ((eventData.position.y - _startingPos.y) >= Screen.height * .38f)
+            if ((eventData.position.y - _startingPos.y) >= Screen.height * .25f)
             {
                 BorderManager.Instance.BorderCondition(true);
             }
@@ -87,7 +88,7 @@ namespace Case.Card
                 BorderManager.Instance.BorderCondition(false);
             }
 
-            CameraControl.Instance.ChangePerspective((eventData.position.x - Screen.width / 2 ) / Screen.width, eventData.position.y / Screen.height);
+            CameraControl.Instance.ChangePerspective((eventData.position.x - Screen.width / 2) / Screen.width, eventData.position.y / Screen.height);
         }
 
         void IEndDragHandler.OnEndDrag(PointerEventData eventData)
@@ -97,12 +98,19 @@ namespace Case.Card
 
             if (Input.GetMouseButtonUp(0) && IsGround() && EnergyManager.Instance.energy >= _characterProperties.Energy)
             {
-                GameObject obj = Instantiate(_characterProperties.Character, GetTouchPosition(), Quaternion.identity);
-                obj.GetComponent<Character>().Initialize("Friend");
+                GameObject obj = BoltNetwork.Instantiate(_characterProperties.Character, GetTouchPosition(), CharacterAngle());
+
+                if (BoltNetwork.IsServer)
+                {
+                    obj.GetComponent<Character>().Initialize("Friend");
+                }
+                else if (BoltNetwork.IsClient)
+                {
+                    obj.GetComponent<Character>().Initialize("Enemy");
+                }
+
 
                 EnergyManager.Instance.SpendEnergy(_characterProperties.Energy);
-
-               
             }
 
             Destroy(_ghostCharacter);
@@ -137,6 +145,18 @@ namespace Case.Card
             }
 
             return false;
+        }
+
+        private Quaternion CharacterAngle()
+        {
+            if (BoltNetwork.IsServer)
+            {
+                return Quaternion.Euler(Vector3.up * 0);
+            }
+            else
+            {
+                return Quaternion.Euler(Vector3.up * 180);
+            }
         }
     }
 }

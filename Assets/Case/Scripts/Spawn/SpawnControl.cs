@@ -2,24 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Case.Managers;
+using Photon.Bolt;
 
 namespace Case.Spawn
 {
-    public class SpawnControl : MonoBehaviour
+    public class SpawnControl : GlobalEventListener
     {
+
         [SerializeField] private Transform[] _points;
-        [SerializeField] private GameObject[] _enemies;
+
+        private List<GameObject> _enemies = new List<GameObject>();
 
         public int TimeToSpawn;
 
-        void Start()
-        {
-            GameManager.Instance.OnStartGame += HandleStartGame;
-        }
 
-        private void HandleStartGame()
+        public override void OnEvent(HandleBegin evnt)
         {
-            StartCoroutine(Spawn());
+            if (BoltNetwork.IsServer)
+            {
+                StartCoroutine(Spawn());
+            }
         }
 
 
@@ -29,9 +31,9 @@ namespace Case.Spawn
             Vector3 pos;
             while(GameManager.Instance.isContinue)
             {
-                obj = _enemies[Random.Range(0, _enemies.Length)];
+               // obj = _enemies[Random.Range(0, 1)];
                 pos = _points[Random.Range(0, _points.Length)].position;
-                Instantiate(obj, pos, Quaternion.Euler(Vector3.up * 180));
+                BoltNetwork.Instantiate(BoltPrefabs.Archer, pos, Quaternion.Euler(Vector3.up * 180));
                 yield return new WaitForSeconds(TimeToSpawn);
             }
         }

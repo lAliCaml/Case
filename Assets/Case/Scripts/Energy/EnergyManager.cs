@@ -34,7 +34,6 @@ namespace Case.Energy
 
         public void SpendEnergy(float amount)
         {
-            energy -= amount;
 
             if (!_isFilling)
             {

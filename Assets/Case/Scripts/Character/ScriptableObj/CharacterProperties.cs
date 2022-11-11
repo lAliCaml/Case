@@ -20,7 +20,5 @@ namespace Case.Characters
         [Header("Create Character")]
         public GameObject Character;
         public float Energy;
-
-
     }
 }
